@@ -1,0 +1,21 @@
+body{
+  background-color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+}
+
+h1{
+   height: auto;
+  color: white;
+  border: white 2px solid;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  span{
+    display: block;
+    color: rgb(119, 255, 77);
+    font-size: 14px;
+  }
+}
