@@ -18,7 +18,7 @@
 │   │   │   └── footer.js
 │   │   │── libs/
 │   │   |   |── animation.js       # Tudo relacionado ao GSAP
-|   |   |   |── slider.js          # Swiper.js configuração
+|   |   |   └── slider.js          # Swiper.js configuração
 │   │   └── utils/                 # Funções utilitárias (ex: debounce.js, helpers.js)
 │   │
 │   ├── index.html                 # Sua única página
