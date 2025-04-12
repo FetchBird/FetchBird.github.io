@@ -1,27 +1,32 @@
 /FETCH-BIRD
 │
-├── /assets
-│   ├── /css
-│   │   ├── styles.css        # Estilos principais
-│   │   ├── variables.css    # Variáveis CSS (usando custom properties)
-│   │   └── sections/        # Estilos específicos para cada seção
-│   │       ├── header.css
-│   │       ├── about.css
-│   │       ├── services.css
-│   │       └── footer.css
+├── public/                        # Tudo que será servido diretamente ao navegador
+│   ├── assets/
+│   │   ├── images/                # Imagens, logos, ícones
+│   │   └── fonts/                 # Fontes personalizadas (se houver)
 │   │
-│   ├── /js
-│   │   ├── main.js          # Arquivo principal JS
-│   │   ├── modules/         # Módulos JS
+│   ├── css/
+│   │   ├── style.css              # Estilo principal
+│   │   └── components/            # Seções ou partes específicas (ex: header.css)
+│   │
+│   ├── js/
+│   │   ├── main.js                # Script principal (inicialização)
+|   |   |── modules/
 │   │   │   ├── header.js
 │   │   │   ├── about.js
 │   │   │   ├── services.js
 │   │   │   └── footer.js
-│   │   └── utils/           # Utilitários JS
-│   │       ├── helpers.js
-│   │       └── animations.js
+│   │   │── libs/
+│   │   |   |── animation.js       # Tudo relacionado ao GSAP
+|   |   |   |── slider.js          # Swiper.js configuração
+│   │   └── utils/                 # Funções utilitárias (ex: debounce.js, helpers.js)
 │   │
-│   └── /images              # Imagens do projeto
+│   ├── index.html                 # Sua única página
+│   └── favicon.ico
 │
-├── /index.html               # Arquivo HTML principal
-└── README.md                 # Documentação do projeto
+├── backend/                       # Código Node.js para envio de e-mail
+│   ├── mailer.js                  # Configuração do Nodemailer
+│   ├── server.js                  # Express ou http server
+│   └── .env                       # Senhas, chaves (SMTP, Gmail, etc.)
+│
+└── README.md
