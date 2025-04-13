@@ -1,0 +1,11 @@
+.contact {
+    max-width: 1200px;
+    width: min(100%, 99vw);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contact h2 {
+    font-family: var(--titulo);
+}

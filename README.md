@@ -6,20 +6,25 @@
 │   │   └── fonts/                 # Fontes personalizadas (se houver)
 │   │
 │   ├── css/
-│   │   ├── style.css              # Estilo principal
-│   │   └── components/            # Seções ou partes específicas (ex: header.css)
+│   │   ├── styles.css        # Estilos principais
+│   │   ├── variables.css    # Variáveis CSS (usando custom properties)
+│   │   └── sections/        # Estilos específicos para cada seção
+│   │       ├── header.css
+│   │       ├── about.css
+│   │       ├── services.css
+│   │       └── footer.css
 │   │
 │   ├── js/
-│   │   ├── main.js                # Script principal (inicialização)
+│   │   │── libs/
+│   │   |   |── animation.js       # Tudo relacionado ao GSAP
+|   |   |   └── slider.js          # Swiper.js configuração
 |   |   |── modules/
 │   │   │   ├── header.js
 │   │   │   ├── about.js
 │   │   │   ├── services.js
 │   │   │   └── footer.js
-│   │   │── libs/
-│   │   |   |── animation.js       # Tudo relacionado ao GSAP
-|   |   |   └── slider.js          # Swiper.js configuração
-│   │   └── utils/                 # Funções utilitárias (ex: debounce.js, helpers.js)
+│   │   |── utils/                 # Funções utilitárias (ex: debounce.js, helpers.js)
+│   │   └── main.js                # Script principal (inicialização)
 │   │
 │   ├── index.html                 # Sua única página
 │   └── favicon.ico
