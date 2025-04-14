@@ -1,6 +1,9 @@
-.contact {
+.contact-container {
     max-width: 1200px;
-    width: min(100%, 99vw);
+    width: min(60%, 60vw);
+}
+
+.contact {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -8,4 +11,105 @@
 
 .contact h2 {
     font-family: var(--titulo);
+    margin-top: 0;
+}
+
+.contact label {
+    font-family: var(--texto);
+    font-size: var(--tamanho-texto-pequeno);
+}
+
+.contact form {
+    /* border: 1px solid red; */
+    width: 80%;
+    margin-top: 5%;
+}
+
+.contact form>div>div {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact #contact-method {
+    border: 1px solid red;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contact #contact-method #radio-container {
+    width: 150px;
+    border: 1px solid black;
+    border-radius: 3px;
+    display: flex;
+    position: relative;
+}
+
+.contact #contact-method #radio-container .slider {
+    position: absolute;
+    width: 50%;
+    height: 102%;
+    background-color: #1b0e2f;
+    transition: transform 0.3s ease, border-radius 0.3s ease;
+    z-index: 1;
+}
+
+.contact #contact-method #radio-container .slider {
+    transform: translateX(-1.2%);
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+
+.contact #contact-method #radio-container .slider.right {
+    transform: translateX(100.4%);
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.contact #contact-method #radio-container .option {
+    position: relative;
+    flex: 1;
+    padding: 5px 10px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.contact #contact-method #radio-container .option input {
+    display: none;
+}
+
+.option .text {
+    color: black;
+    transition: color 0.3s;
+}
+
+.option input:checked+.text {
+    color: orange;
+}
+
+.contact #contact-method #radio-container .option .email-icon-container {
+    display: flex;
+    justify-content: center;
+}
+
+.contact #contact-method #radio-container .option .whatsapp-icon-container {
+    display: flex;
+    justify-content: center;
+}
+
+.contact #contact-method #radio-container .option .email-icon-container img {
+    display: none;
+}
+
+.contact #contact-method #radio-container .option .email-icon-container img.active {
+    display: inline;
+}
+
+.contact #contact-method #radio-container .option .whatsapp-icon-container img {
+    display: none;
+}
+
+.contact #contact-method #radio-container .option .whatsapp-icon-container img.active {
+    display: inline;
 }

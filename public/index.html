@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/styles.css">
+  <script type="module" src="./js/main.js"></script>
   <title>Fetch Bird</title>
 </head>
 
@@ -13,57 +14,74 @@
   <h1>Tudo o que um sonho precisa para se realizar é de alguém que acredite nele. <span>- Galinha que voou</span></h1>
   </span></h1>
 
-  <dialog open class="contact">
-    <h2>Contato</h2>
+  <dialog class="contact-container">
+    <div class="contact">
+      <h2>Contato</h2>
 
-    <form>
-      <div>
-        <label>Por onde entramos em contato</label>
-
+      <form>
         <div>
-          <div class="email"></div>
-          <div class="whatsapp"></div>
-        </div>
 
-        <div>
-          <label>Nome</label>
-          <input type="text">
-        </div>
+          <div id="contact-method">
+            <label>Por onde entramos em contato?</label>
 
-        <div>
-          <label>Email/Celular</label>
-          <input type="text">
-        </div>
+            <div id="radio-container">
+              <div class="slider left"></div>
 
-        <div>
-          <label>Orçamento disponível (opcional)</label>
-          <input type="text">
-        </div>
+              <label class="option">
+                <input type="radio" name="contact" value="email" />
+                <div class="text email-icon-container">
+                  <img class="email-icon-black" width="30%" src="./assets/images/email_black.svg" alt="">
+                  <img class="email-icon-orange active" width="30%" src="./assets/images/email_orange.svg" alt="">
+                </div>
+              </label>
 
-        <div>
-          <label>Assunto</label>
-          <select name="assunto" id="asssunto">
-            <option value="Orçamento"></option>
-            <option value="Suporte"></option>
-            <option value="Dúvida"></option>
-            <option value="Outro"></option>
-          </select>
-        </div>
+              <label class="option">
+                <input type="radio" name="contact" value="whatsapp" />
+                <div class="text whatsapp-icon-container">
+                  <img class="whatsapp-icon-black active" width="30%" src="./assets/images/whatsapp_black.svg" alt="">
+                  <img class="whatsapp-icon-orange" width="30%" src="./assets/images/whatsapp_orange.svg" alt="">
+                </div>
 
-        <div>
-          <label>Mensagem</label>
-          <textarea name="mensagem" id="mensagem"></textarea>
-        </div>
+              </label>
+            </div>
+          </div>
 
-        <button>Enviar</button>
-      </div>
-    </form>
+          <div>
+            <label>Nome</label>
+            <input type="text">
+          </div>
+
+          <div>
+            <label>Email/Celular</label>
+            <input type="text">
+          </div>
+
+          <div>
+            <label>Orçamento disponível (opcional)</label>
+            <input type="text">
+          </div>
+
+          <div>
+            <label>Assunto</label>
+            <select name="assunto" id="asssunto">
+              <option value="Orçamento"></option>
+              <option value="Suporte"></option>
+              <option value="Dúvida"></option>
+              <option value="Outro"></option>
+            </select>
+          </div>
+
+          <div>
+            <label>Mensagem</label>
+            <textarea name="mensagem" id="mensagem"></textarea>
+          </div>
+
+          <button>Enviar</button>
+        </div>
+      </form>
+    </div>
   </dialog>
 
 </body>
-
-<style>
-  .formulario {}
-</style>
 
 </html>
