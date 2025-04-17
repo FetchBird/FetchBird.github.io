@@ -1,6 +1,13 @@
+/* ------------------ GERAL ------------------ */
+
 .contact-container {
+    background-color: var(--branco);
     max-width: 1200px;
     width: min(60%, 60vw);
+    /* position: fixed; */
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .contact {
@@ -21,7 +28,7 @@
 
 .contact form {
     /* border: 1px solid red; */
-    width: 80%;
+    width: 70%;
     margin-top: 5%;
 }
 
@@ -30,14 +37,19 @@
     flex-direction: column;
 }
 
+
+/* ------------------ MÉTODO DE CONTATO ------------------ */
+
 .contact #contact-method {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin-bottom: 40px;
 }
 
 .contact #contact-method #radio-container {
+    margin-top: 10px;
     width: 150px;
     border: 1px solid black;
     border-radius: 3px;
@@ -112,4 +124,38 @@
 
 .contact #contact-method #radio-container .option .whatsapp-icon-container img.active {
     display: inline;
+}
+
+
+/* ------------------ INPUTS ------------------ */
+
+.contact-container .contact :is(input, select, textarea) {
+    /* width: 50%; */
+    margin-top: 5px;
+    margin-bottom: 25px;
+    border: 1px solid #CED4DA;
+    border-radius: 3px;
+    padding: 8px;
+}
+
+.contact-container .contact textarea {
+    min-height: 100px;
+}
+
+.contact-container .contact .button-container {
+    display: flex;
+    align-items: end;
+}
+
+.contact-container .contact .button-container button {
+    border: 1px solid #CED4DA;
+    border-radius: 5px;
+    background-color: var(--laranja);
+    padding: 5px 25px;
+    font-family: var(--titulo);
+    font-weight: var(--peso-destaque);
+    font-size: var(--tamanho-texto);
+    letter-spacing: 0.5px;
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
