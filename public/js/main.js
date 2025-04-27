@@ -1,3 +1,3 @@
-import contactForm from "./modules/contactForm.js";
+import { initContactForm } from "./modules/contactForm.js";
 
-contactForm();
+initContactForm();

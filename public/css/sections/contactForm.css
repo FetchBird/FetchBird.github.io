@@ -3,17 +3,34 @@
 .contact-container {
     background-color: var(--branco);
     max-width: 1200px;
-    width: min(60%, 60vw);
+    width: min(40%, 50vw);
     /* position: fixed; */
-    top: 10%;
+    top: 3%;
     left: 50%;
     transform: translateX(-50%);
 }
+
+.topo-formulario {
+    background: url('../../assets/images/contactForm.svg') no-repeat center top;
+    background-size: cover;
+    z-index: 0;
+    pointer-events: none;
+    /* evita atrapalhar cliques */
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 200px;
+    /* altura da curva */
+}
+
 
 .contact {
     display: flex;
     align-items: center;
     flex-direction: column;
+    position: relative;
 }
 
 .contact h2 {
@@ -130,12 +147,17 @@
 /* ------------------ INPUTS ------------------ */
 
 .contact-container .contact :is(input, select, textarea) {
-    /* width: 50%; */
+    outline: none;
+    resize: none;
     margin-top: 5px;
     margin-bottom: 25px;
     border: 1px solid #CED4DA;
     border-radius: 3px;
     padding: 8px;
+}
+
+.contact-container .contact #budget-container.hidden {
+    display: none;
 }
 
 .contact-container .contact textarea {
@@ -148,13 +170,14 @@
 }
 
 .contact-container .contact .button-container button {
+    cursor: pointer;
     border: 1px solid #CED4DA;
     border-radius: 5px;
     background-color: var(--laranja);
-    padding: 5px 25px;
+    padding: 5px 20px;
     font-family: var(--titulo);
     font-weight: var(--peso-destaque);
-    font-size: var(--tamanho-texto);
+    font-size: var(--tamanho-texto-pequeno);
     letter-spacing: 0.5px;
     margin-top: 20px;
     margin-bottom: 30px;

@@ -14,7 +14,11 @@
   <h1>Tudo o que um sonho precisa para se realizar é de alguém que acredite nele. <span>- Galinha que voou</span></h1>
   </span></h1>
 
-  <dialog class="contact-container">
+  <dialog open class="contact-container">
+    <div class="topo-formulario">
+   
+    </div>
+
     <div class="contact">
       <h2>Contato</h2>
 
@@ -26,9 +30,9 @@
 
             <div id="radio-container">
               <div class="slider left"></div>
-
+              <!-- TODO basear troca de slide no checked do input selecionado -->
               <label class="option">
-                <input type="radio" name="contact" value="email" />
+                <input type="radio" name="contact" checked value="email" />
                 <div class="text email-icon-container">
                   <img class="email-icon-black" width="30%" src="./public/assets/images/email_black.svg" alt="">
                   <img class="email-icon-orange active" width="30%" src="./public/assets/images/email_orange.svg"
@@ -50,26 +54,28 @@
 
           <div>
             <label>Nome</label>
-            <input type="text">
+            <input type="text" required>
           </div>
 
-          <div>
-            <label>Email/Celular</label>
-            <input type="text">
+          <!-- TODO terminar função de troca de label -->
+          <div id="contact-info-container">
+            <label>Email</label>
+            <input type="text" required>
           </div>
 
-          <div>
+          <div id="budget-container" class="hidden">
             <label>Orçamento disponível (opcional)</label>
             <input type="text">
           </div>
 
-          <div>
+          <div id="subject-container">
             <label>Assunto</label>
-            <select name="assunto" id="asssunto">
-              <option value="Orçamento"></option>
-              <option value="Suporte"></option>
-              <option value="Dúvida"></option>
-              <option value="Outro"></option>
+            <select name="subject" id="subject">
+              <option value="" selected disabled>Selecione um assunto</option>
+              <option value="orcamento">Orçamento</option>
+              <option value="suporte">Suporte</option>
+              <option value="duvida">Dúvida</option>
+              <option value="outro">Outro</option>
             </select>
           </div>
 

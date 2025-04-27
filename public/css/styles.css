@@ -25,3 +25,40 @@ h1 {
     font-family: var(--texto);
   }
 }
+
+@media (min-width: 481px) {
+  /* Estilos para dispositivos maiores que celular pequeno */
+}
+
+@media (min-width: 577px) {
+  /* Estilos para dispositivos maiores que celular médio */
+}
+
+@media (min-width: 769px) {
+  /* Estilos para dispositivos maiores que tablet pequeno */
+}
+
+@media (min-width: 993px) {
+  /* Estilos para dispositivos maiores que tablet grande */
+}
+
+@media (min-width: 1201px) {
+  /* Estilos para dispositivos maiores que laptop pequeno */
+}
+
+@media (min-width: 1401px) {
+  /* Estilos para desktops grandes */
+}
+
+/* -------------------- EXTRA BONUS: RESPONSIVO AUTOMÁTICO -------------------- */
+
+/* Exemplo de responsividade moderna com clamp() */
+h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+}
+
+p {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+/* Clamp é incrível porque reduz necessidade de muitos media queries para fontes e espaçamentos */
