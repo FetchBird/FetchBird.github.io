@@ -53,12 +53,12 @@ h1 {
 /* -------------------- EXTRA BONUS: RESPONSIVO AUTOMÁTICO -------------------- */
 
 /* Exemplo de responsividade moderna com clamp() */
-h1 {
+/* h1 {
   font-size: clamp(2rem, 5vw, 4rem);
 }
 
 p {
   font-size: clamp(1rem, 2.5vw, 1.5rem);
-}
+} */
 
 /* Clamp é incrível porque reduz necessidade de muitos media queries para fontes e espaçamentos */
