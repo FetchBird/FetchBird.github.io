@@ -113,6 +113,12 @@ function toggleContactForm() {
 
 }
 
+// TODO: 
+// input de nome: regex para apenas letras e espaços,
+// condicionar o input de email/whatsapp e não só o label,
+// inserir prefixo de moeda no orçamento e inserir mascaras de celular,
+// validação de caracteres maximos e regex,
+// limpar form quando modal fechar
 export function initContactForm() {
     toggleContactForm()
     toggleContactMethod();
