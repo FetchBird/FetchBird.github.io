@@ -1,30 +1,19 @@
 /* ------------------ GERAL ------------------ */
 
+body.modal-open {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
 .contact-container {
     background-color: var(--branco);
+    border: 1px solid rgba(0, 0, 0, 0.1); /* borda muito fina e suave */
+    border-radius: 5px;
     max-width: 1200px;
     width: min(40%, 50vw);
-    /* position: fixed; */
     top: 3%;
     left: 50%;
     transform: translateX(-50%);
 }
-
-.topo-formulario {
-    background: url('../../assets/images/contactForm.svg') no-repeat center top;
-    background-size: cover;
-    z-index: 0;
-    pointer-events: none;
-    /* evita atrapalhar cliques */
-    position: absolute;
-    top: 0;
-    left: 0;
-    box-sizing: border-box;
-    width: 100%;
-    height: 200px;
-    /* altura da curva */
-}
-
 
 .contact {
     display: flex;
@@ -33,9 +22,20 @@
     position: relative;
 }
 
-.contact h2 {
+.contact h3 {
     font-family: var(--titulo);
+    /* font-size: var(--tamanho-texto); */
     margin-top: 0;
+}
+
+.contact h3::after {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 11px;
+    height: 16px;
+    background-color: var(--laranja);
+    border-radius: 50%;
 }
 
 .contact label {

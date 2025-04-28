@@ -87,7 +87,34 @@ function toggleContactInfoLabel() {
     });
 }
 
+function toggleContactForm() {
+    const dialog = document.querySelector('.contact-container');
+    const body = document.querySelector('body');
+    const h1 = document.querySelector('.titulo-principal');
+
+    h1.addEventListener('click', (event) => {
+        event.stopPropagation();
+
+        if (dialog.hasAttribute('open')) {
+            dialog.removeAttribute('open');
+            body.classList.remove('modal-open');
+        } else {
+            dialog.setAttribute('open', '');
+            body.classList.add('modal-open');
+        }
+    });
+
+    document.addEventListener('click', (event) => {
+        if (dialog.hasAttribute('open') && !dialog.contains(event.target)) {
+            dialog.removeAttribute('open');
+            body.classList.remove('modal-open');
+        }
+    });
+
+}
+
 export function initContactForm() {
+    toggleContactForm()
     toggleContactMethod();
     toggleBudgetInput();
     toggleContactInfoLabel();
