@@ -12,9 +12,55 @@
 </head>
 
 <body>
+  <header class="header container">
+    <div class="logo">
+      <img src="./public/assets/images/header/logo.png" alt="Ilustração estilizada de um pássaro voando" loading="lazy">
+      <h1>FETCH BIRD</h1>
+    </div>
+    <nav aria-label="nav_principal" >
+      <ul class="menu">
+        <li><a href="/sobre" aria-current="page">Portfólio</a></li>
+        <li><a href="/servicos">Contato</a></li>
+        <li><a href="/contato">Sobre nós</a></li>
+      </ul>
+      <div>
+        <button class="btn_principal">Vamos começar</button>
+      </div>
+    </nav>
+    <button class="btn-mobile" aria-label="Abrir menu">
+      <svg class="icon-menu" viewBox="0 0 40 40" width="40" height="40">
+        <rect class="bar1" x="5" y="10" width="30" height="4" rx="2" />
+        <rect class="bar2" x="5" y="18" width="30" height="4" rx="2" />
+        <rect class="bar3" x="5" y="26" width="30" height="4" rx="2" />
+      </svg>
+    </button>
+  
+  </header>
 
-  <h1 class="titulo-principal">Tudo o que um sonho precisa para se realizar é de alguém que acredite nele. <span>- Galinha que voou</span></h1>
-  </span></h1>
+  <section class="intro container">
+    <div class="content-wrapper">
+      <article>
+        <h1 class="hero-title">
+          <span class="title-line">TODO SONHO NASCE</span>
+          <span class="title-line">DE ALGUM LUGAR</span>
+          <span class="title-line">E O SEU <span class="question-mark" aria-hidden="true">?</span></span>
+        </h1>
+        <p class="hero-subtitle">
+          Cada detalhe importa na construção de algo grandioso. E nós cuidamos disso pra você
+        </p>
+      </article>
+      <button class="btn_contato" aria-label="Abrir formulário de contato">
+        Entrar em contato
+      </button>
+    </div>
+    <figure class="image-wrapper" aria-labelledby="bird-caption">
+      <img src="./public/assets/images/header/bird.png" alt="Ilustração estilizada de um pássaro voando" loading="lazy">
+ 
+    </figure>
+    
+  </section>
+
+
 
   <dialog class="contact-container">
     <div class="contact">
@@ -87,7 +133,20 @@
       </form>
     </div>
   </dialog>
-
 </body>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const botao = document.querySelector('.btn-mobile');
+    const nav = document.querySelector('nav[aria-label="nav_principal"]');
+
+    botao.addEventListener('click', () => {
+      nav.classList.toggle('on');
+      botao.classList.toggle('on'); // Para ativar o estilo do X
+    });
+  });
+
+</script>
 
 </html>

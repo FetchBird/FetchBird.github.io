@@ -1,0 +1,145 @@
+/* Reset básico mantendo semântica e acessibilidade */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Define modelo de caixa consistente */
+  margin: 0;
+  padding: 0;
+  color: var(--roxo-escuro);
+}
+
+ h1,h2 {
+  font-family: var(--titulo); 
+
+}
+
+p,span,h3,h4, li, button, li{
+  font-family: var(--texto) !important;
+}
+
+html {
+  line-height: 1.15; /* Padroniza line-height */
+  -webkit-text-size-adjust: 100%; /* Previne ajuste de texto em iOS */
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Elementos semânticos de bloco */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* Títulos consistentes */
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* Listas */
+ul, ol {
+  list-style: none;
+}
+
+/* Elementos interativos */
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: inherit;
+  border: 1px solid currentColor;
+  background-color: transparent;
+}
+
+/* Links */
+a {
+  background-color: transparent;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Imagens e conteúdo embutido */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Tabelas */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+/* Previne overflow em elementos pre-formatados */
+pre, code, kbd, samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* Reset para formulários */
+button, input {
+  overflow: visible;
+}
+
+button, [type="button"], [type="reset"], [type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+/* Remove efeito padrão do Firefox */
+::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/* Remove estilos padrão de inputs numéricos */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/* Corrige cursor para botões de incremento/decremento */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  opacity: 1;
+}
+
+/* Elementos de mídia */
+audio,
+video {
+  display: block;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/* Previne conteúdo vazio */
+:where([hidden]) {
+  display: none;
+}
+
+/* Mantém consistência em navegadores modernos */
+:focus:not(:focus-visible) {
+  outline: 0;
+}
+
+/* Estilo de foco acessível */
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
