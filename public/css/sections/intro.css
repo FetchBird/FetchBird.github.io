@@ -89,8 +89,8 @@
   height: 85vh;
   display: flex;
   flex-direction: column-reverse;
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
+  padding-top: 40px;
   position: relative;
 }
 
@@ -102,22 +102,27 @@
 }
 
 .hero-title{
-  font-size: 34px;
+  font-size: 30px;
+  text-align: center;
   align-items: center;
   line-height: 1.4em;
 }
 .hero-subtitle{
-  font-size: 18px;
+  font-size: 16px;
   text-align: center;
-  margin: 15px 0px 15px 0px;
-  width: 425px;
+  margin: 30px 0px 30px 0px;
+  width: 325px;
+
   line-height: 1.4em;
 }
 .content-wrapper{ display: flex; flex-direction: column; align-items: center;}
 .hero-title span:nth-child(3) {
   font-size: 48px;
+  margin-top: 10px;
 }
 .btn_contato{ 
+  height: 65px;
+  width: 275px;
   margin-top: 5px;
   color: var(--branco) !important;
 }
