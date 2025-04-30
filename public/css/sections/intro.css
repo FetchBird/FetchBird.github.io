@@ -1,5 +1,7 @@
+  body{
+    background-color: gray;
+   }
 .intro{
-  background-color: purple;
   height: 85vh;
   display: grid;
   grid-template-columns:  1fr 385px;
