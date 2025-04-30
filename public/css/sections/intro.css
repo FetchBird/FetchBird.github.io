@@ -173,7 +173,6 @@
    }
    .intro{
   display: flex;
-  background-color: red;
   flex-direction: column-reverse;
    justify-content: start;
    padding-top: 25px;
