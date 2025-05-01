@@ -96,8 +96,9 @@
 }
 
 .image-wrapper img{
-  width: 100%;
-  height: 175px;
+  width: 155px !important;
+margin-bottom: 5px;
+  height: 155px !important;
     animation: hatchShake 2s ease-out forwards;
   transform-origin: center;
 }
