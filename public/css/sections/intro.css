@@ -83,7 +83,7 @@
 /* Samsung */
 @media (max-width: 750px) and (max-height: 849px) and (min-height: 696px) {
  body{
-    background-color: rgb(71, 224, 255) !important;
+    background-color: green !important;
   }
   .intro{
   height: 85vh;
@@ -131,7 +131,7 @@
 } 
 @media (max-width: 850px) and (max-height: 315px) {
    body{
-    background-color: rgb(71, 224, 255) !important;
+    background-color: green !important;
   }
    .intro{
   height: 85vh;
@@ -234,7 +234,7 @@ margin-bottom: 5px;
 
 @media (orientation: landscape) and (max-width: 932px) and (min-width: 820px) and (max-height: 430px) and (min-height: 375px) {
   body{
-    background-color: rgb(71, 224, 255) !important;
+    background-color: RED !important;
   }
  .intro{
   height: 85vh;
@@ -249,8 +249,8 @@ margin-bottom: 5px;
   flex: 1 0 calc(50% - 10px); /* 10px = metade do gap */
 }
 .image-wrapper img{
-   width: 200px !important;
-   height: 200px;
+   width: 20px !important;
+   height: 20px;
 }
 
 .hero-title{
