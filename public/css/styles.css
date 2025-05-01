@@ -1,54 +1,17 @@
 @import './variables.css';
+@import './reset.css';
+@import './grid.css';
+@import './sections/header.css';
+@import './sections/intro.css';
 @import './sections/contactForm.css';
 
 body {
-  background-color: var(--branco);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: var(--branco-escuro);
   min-height: 90vh;
 }
 
-h1 {
-  height: auto;
-  /* color: white;
-  border: white 2px solid; */
-  font-family: var(--titulo);
-  border-radius: 5px;
-  padding: 10px;
-  text-align: center;
 
-  span {
-    display: block;
-    color: rgb(119, 255, 77);
-    font-size: 14px;
-    font-family: var(--texto);
-  }
-}
 
-@media (min-width: 481px) {
-  /* Estilos para dispositivos maiores que celular pequeno */
-}
-
-@media (min-width: 577px) {
-  /* Estilos para dispositivos maiores que celular médio */
-}
-
-@media (min-width: 769px) {
-  /* Estilos para dispositivos maiores que tablet pequeno */
-}
-
-@media (min-width: 993px) {
-  /* Estilos para dispositivos maiores que tablet grande */
-}
-
-@media (min-width: 1201px) {
-  /* Estilos para dispositivos maiores que laptop pequeno */
-}
-
-@media (min-width: 1401px) {
-  /* Estilos para desktops grandes */
-}
 
 /* -------------------- EXTRA BONUS: RESPONSIVO AUTOMÁTICO -------------------- */
 

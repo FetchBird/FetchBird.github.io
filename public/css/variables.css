@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sono:wght@200..800&family=Special+Gothic&family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap');
 
 :root {
     /* Cores principais */
@@ -9,10 +8,12 @@
     --roxo-claro: #CB5EEE;
     --laranja: #F9AF2B;
     --branco: #F8F8F8;
+    --branco-escuro: #f0f2f0;
 
     /* Fontes */
     --titulo: "Poppins", serif;
     --texto: "Roboto", serif;
+    --logo:"Quicksand";
 
     /* Tamanhos de fonte */
     --tamanho-titulo-grande: 3rem;
@@ -23,5 +24,16 @@
     /* Pesos de fonte */
     --peso-titulo: 700; /* Bold */
     --peso-texto: 400; /* Regular */
-    --peso-destaque: 500; /* Medium */
+    --peso-destaque: 800; /* Medium */
+
+
+    /*GRID*/
+    --gap:50px;
+
+  --breakpoint-xs: 30.0625em;  /* 481px */
+  --breakpoint-sm: 36.0625em;  /* 577px */
+  --breakpoint-md: 48.0625em;  /* 769px */
+  --breakpoint-lg: 62.0625em;  /* 993px */
+  --breakpoint-xl: 75.0625em;  /* 1201px */
+  --breakpoint-xxl: 87.5625em; /* 1401px */
 }
