@@ -130,7 +130,9 @@
 }
 } 
 @media (max-width: 850px) and (max-height: 315px) {
-   
+   body{
+    background-color: rgb(71, 224, 255) !important;
+  }
    .intro{
   height: 85vh;
   display: grid;
