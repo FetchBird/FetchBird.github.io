@@ -1,3 +1,11 @@
+/* 
+    TODO:
+    descobrir por que o titulo está sem fonte de titulo
+    arrumar bug de input vazio de orçamento que dá nan 
+    imagens do fundo com modal aberto não ficam em cinza
+    quando seleciona orçamento, aparece o input de orçamento, mas não some quando fecha e reabre o modal
+*/
+
 /* ------------------ GERAL ------------------ */
 
 body.modal-open {
@@ -9,7 +17,7 @@ body.modal-open {
     border: 1px solid rgba(0, 0, 0, 0.1); /* borda muito fina e suave */
     border-radius: 5px;
     max-width: 1200px;
-    width: min(40%, 50vw);
+    width: min(50%, 50vw);
     top: 3%;
     left: 50%;
     transform: translateX(-50%);
@@ -24,8 +32,8 @@ body.modal-open {
 
 .contact h3 {
     font-family: var(--titulo);
-    /* font-size: var(--tamanho-texto); */
-    margin-top: 0;
+    font-size: var(--tamanho-titulo-medio);
+    margin-top: 10px;
 }
 
 .contact h3::after {
@@ -154,6 +162,11 @@ body.modal-open {
     border: 1px solid #CED4DA;
     border-radius: 3px;
     padding: 8px;
+}
+
+select, option {
+    font-family: var(--texto);
+    font-size: var(--tamanho-texto-pequeno);
 }
 
 .contact-container .contact #budget-container.hidden {
