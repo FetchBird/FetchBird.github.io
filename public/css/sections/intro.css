@@ -269,8 +269,9 @@
 }
 
 }
-@media (max-width: 849px) and (min-height: 320px){
+
+@media (max-width: 844px) and (min-width:828px) and (max-height: 390px)  and (min-height: 375px){
   body{
-    background-color: red !important;
+    background-color: rgb(255, 0, 179) !important;
   }
 }
