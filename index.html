@@ -20,7 +20,7 @@
     <div class="contact">
       <h3>Contato</h3>
 
-      <form>
+      <form id="contact-form"> 
         <div>
 
           <div id="contact-method">
@@ -51,17 +51,17 @@
 
           <div>
             <label>Nome</label>
-            <input type="text" required>
+            <input type="text" name="nome" maxlength="100" required>
           </div>
 
           <div id="contact-info-container">
             <label>Email</label>
-            <input type="text" required>
+            <input data-type="email" type="text" name="contato-info" required>
           </div>
 
           <div id="budget-container" class="hidden">
             <label>Orçamento disponível (opcional)</label>
-            <input type="text">
+            <input type="text" name="orcamemento">
           </div>
 
           <div id="subject-container">
@@ -77,11 +77,11 @@
 
           <div>
             <label>Mensagem</label>
-            <textarea name="mensagem" id="mensagem"></textarea>
+            <textarea name="mensagem" id="mensagem" maxlength="2000"></textarea>
           </div>
 
           <div class="button-container">
-            <button>ENVIAR</button>
+            <button type="submit">ENVIAR</button>
           </div>
         </div>
       </form>

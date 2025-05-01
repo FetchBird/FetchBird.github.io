@@ -45,8 +45,13 @@ function toggleContactMethod() {
 
 function toggleBudgetInput() {
     const budget = document.getElementById('budget-container');
+    const budgetLabel = document.querySelector('#budget-container > input');
     const select = document.getElementById('subject');
+
     if (!select) return;
+
+    console.log(budget)
+    formatCurrency(budgetLabel);
 
     select.addEventListener('change', () => {
         const value = select.value;
@@ -73,15 +78,22 @@ function initiContactInfoLabel(radios, contactInfoLabel) {
 function toggleContactInfoLabel() {
     const radios = document.querySelectorAll('input[name="contact"]');
     const contactInfoLabel = document.querySelector('#contact-info-container > label');
+    const contactInfoInput = document.querySelector('#contact-info-container > input');
 
     initiContactInfoLabel(radios, contactInfoLabel);
+    validateContactInfo(contactInfoInput);
 
     radios.forEach((radio, index) => {
         radio.addEventListener('change', () => {
+            contactInfoInput.value = '';
             if (radio.value === 'email') {
                 contactInfoLabel.innerText = 'Email';
+                contactInfoInput.dataset.type = 'email';
+                contactInfoInput.setAttribute('maxlength', '254');
             } else if (radio.value === 'whatsapp') {
                 contactInfoLabel.innerText = 'WhatsApp';
+                contactInfoInput.dataset.type = 'whatsapp';
+                contactInfoInput.removeAttribute('maxlength');
             }
         })
     });
@@ -90,6 +102,7 @@ function toggleContactInfoLabel() {
 function toggleContactForm() {
     const dialog = document.querySelector('.contact-container');
     const body = document.querySelector('body');
+    const form = document.getElementById('contact-form');
     const h1 = document.querySelector('.titulo-principal');
 
     h1.addEventListener('click', (event) => {
@@ -101,6 +114,7 @@ function toggleContactForm() {
         } else {
             dialog.setAttribute('open', '');
             body.classList.add('modal-open');
+            form.reset();
         }
     });
 
@@ -113,13 +127,55 @@ function toggleContactForm() {
 
 }
 
-// TODO: 
-// input de nome: regex para apenas letras e espaços,
-// condicionar o input de email/whatsapp e não só o label,
-// inserir prefixo de moeda no orçamento e inserir mascaras de celular,
-// validação de caracteres maximos e regex,
-// limpar form quando modal fechar
+function validateContactInfo(input) {
+    input.addEventListener('input', () => {
+        const type = input.dataset.type;
+
+        if (type === 'email') {
+            const value = input.value.trim();
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            input.setCustomValidity(value && !emailRegex.test(value) ? "E-mail inválido." : "");
+        } else if (type === 'whatsapp') {
+            let value = input.value.replace(/\D/g, '');
+
+            if (value.length > 11) {
+                value = value.slice(0, 11);
+            }
+
+            input.value = value;
+        }
+    });
+}
+
+function formatCurrency(input) {
+    input.addEventListener('input', () => {
+        let value = input.value.replace(/\D/g, '');
+        value = (parseInt(value, 10) / 100).toFixed(2);
+        value = value
+            .replace('.', ',')
+            .replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+        input.value = `R$ ${value}`;
+    });
+}
+
+function validateName(input) {
+    const nameRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]*$/;
+
+    input.addEventListener('input', () => {
+        let value = input.value;
+
+        value = value.replace(/[^A-Za-zÀ-ÖØ-öø-ÿ\s'-]/g, '');
+
+        input.value = value;
+    });
+}
+
 export function initContactForm() {
+    const form = document.getElementById('contact-form');
+    validateName(form.elements['nome']);
     toggleContactForm()
     toggleContactMethod();
     toggleBudgetInput();
