@@ -180,7 +180,7 @@
 }
 }
 /* TV*/
-@media (min-width: 1900px){
+@media (min-width: 1700px){
  .intro{
   align-items: start;
   justify-content: space-between;
