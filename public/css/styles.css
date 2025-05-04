@@ -4,6 +4,7 @@
 @import './sections/header.css';
 @import './sections/intro.css';
 @import './sections/contactForm.css';
+@import './sections/support.css';
 
 body {
   background-color: var(--branco-escuro);

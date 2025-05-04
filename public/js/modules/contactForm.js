@@ -91,11 +91,18 @@ function validateContactInfo(input) {
 function formatCurrency(input) {
     input.addEventListener('input', () => {
         let value = input.value.replace(/\D/g, '');
+
+        if (!value) {
+            input.value = '';
+            return;
+        }
+
         value = (parseInt(value, 10) / 100).toFixed(2);
         value = value.replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.');
         input.value = `R$ ${value}`;
     });
 }
+
 
 function validateName(input) {
     input.addEventListener('input', () => {
@@ -106,6 +113,10 @@ function validateName(input) {
 function closeContactForm() {
     const dialog = document.querySelector('.contact-container');
     const body = document.querySelector('body');
+    const budget = document.getElementById('budget-container');
+
+    budget.classList.add('hidden');
+
     dialog.removeAttribute('open');
     body.classList.remove('modal-open');
 }
