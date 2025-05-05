@@ -93,7 +93,7 @@
 
 }
 
-@media (max-width: 899px) and (max-height: 590px) and (min-height: 296px){
+@media (max-width: 899px) and (min-width: 900px) and (min-height: 296px){
 
   
   .intro{
