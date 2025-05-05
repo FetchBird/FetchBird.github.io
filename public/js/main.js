@@ -1,4 +1,5 @@
 import { setupContactForm } from "./modules/contactForm.js";
+import { setupSupport } from "./modules/support.js";
 
 window.onload = () => {
     const botao = document.querySelector('.btn-mobile');
@@ -11,4 +12,5 @@ window.onload = () => {
 
     const contactButton = document.querySelector('.btn_contato');
     setupContactForm(contactButton);
+    setupSupport();
 };

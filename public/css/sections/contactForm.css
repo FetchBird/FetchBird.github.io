@@ -1,26 +1,41 @@
 /* 
     TODO:
     descobrir por que o titulo está sem fonte de titulo
-    arrumar bug de input vazio de orçamento que dá nan 
-    imagens do fundo com modal aberto não ficam em cinza
-    quando seleciona orçamento, aparece o input de orçamento, mas não some quando fecha e reabre o modal
 */
 
 /* ------------------ GERAL ------------------ */
 
-body.modal-open {
-    background-color: rgba(0, 0, 0, 0.5) !important;
+/* Overlay (fundo escuro) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro */
+    z-index: 998; /* Abaixo do modal */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* Quando o modal está aberto, o overlay fica visível */
+body.modal-open .modal-overlay {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .contact-container {
     background-color: var(--branco);
-    border: 1px solid rgba(0, 0, 0, 0.1); /* borda muito fina e suave */
+    border: 1px solid rgba(0, 0, 0, 0.1); 
     border-radius: 5px;
     max-width: 1200px;
     width: min(50%, 50vw);
     top: 3%;
     left: 50%;
     transform: translateX(-50%);
+    position: fixed;
+    z-index: 999; /* Garantir que o modal fique acima do overlay */
 }
 
 .contact {

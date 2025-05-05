@@ -1,0 +1,79 @@
+#project {
+    width: 20%;
+}
+
+.arrow-container {
+    position: absolute;
+}
+
+.arrow-dot {
+    width: 12px;
+    height: 12px;
+    background-color: #1a001a;
+    border-radius: 50%;
+    margin-right: 8px;
+    position: absolute;
+    bottom: 10%;
+}
+
+.seta {
+    position: relative;
+    width: 200px;
+    /* comprimento inicial */
+    height: 10px;
+}
+
+.corpo {
+    background: black;
+    height: 50%;
+    width: 100%;
+    border-radius: 5px;
+    /* deixa o corpo arredondado */
+    position: relative;
+}
+
+/* Pontas */
+
+.ponta-container {
+    border:1px solid red;
+    width: 40px;
+    height: 40px;
+    /* position: relative;
+    top: -35%;
+    left: 0%; */
+}
+
+.ponta {
+    position: absolute;
+    width: 20px;
+    height: 4px;
+    background: black;
+    top: 13%;
+    transform-origin: left center;
+    border-radius: 2px;
+}
+
+/* Ponta com arredondamento visual fake usando bolinha extra */
+.ponta::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 4px;
+    height: 0px;
+    background: black;
+    border-radius: 49%;
+    transform: translateY(-50%);
+}
+
+.ponta-esquerda {
+    top: 0;
+    left: 100%;
+    transform: rotate(140deg);
+}
+
+.ponta-direita {
+    top: 16%;
+    left: 100%;
+    transform: rotate(-138deg);
+}
