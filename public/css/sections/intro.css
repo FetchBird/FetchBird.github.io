@@ -84,7 +84,7 @@
 
 /*PC*/
 
-@media (max-width: 1110px) and   (min-width: 900px) and (max-height: 590px) and (min-height: 296px){
+@media (max-width: 1110px) and   (min-width: 900px) and (max-height: 690px) and (min-height: 296px){
 .intro{gap: 0vh;}
 .hero-title{font-size: 45px;}
 .hero-subtitle{font-size: 20px;}
