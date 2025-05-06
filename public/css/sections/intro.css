@@ -90,9 +90,6 @@
 .hero-subtitle{font-size: 20px;}
 .content-wrapper{flex: 0 0 60%;}
 .image-wrapper {flex: 0 0 40%;}
- body{
-  background-color: cyan !important;
- }
 
 }
 
@@ -247,7 +244,7 @@
  .intro{
   align-items: start;
   justify-content: space-between;
-  padding-top: 10vh;
+  padding-top: 5vh;
   padding-left: 11vh;
   gap: 140px;
  }
