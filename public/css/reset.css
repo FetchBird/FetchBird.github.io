@@ -8,14 +8,6 @@
   color: var(--roxo-escuro);
 }
 
- h1,h2 {
-  font-family: var(--titulo); 
-
-}
-
-/* p,span,h3,h4, li, button, li{
-  font-family: var(--texto) !important;
-} */
 
 html {
   line-height: 1.15; /* Padroniza line-height */

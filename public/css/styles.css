@@ -10,8 +10,12 @@ body {
   background-color: var(--branco-escuro);
   min-height: 90vh;
 }
-
-
+h1{
+  font-family: var(--titulo) !important;
+}
+h2,h3,h4,h6,p,span,li, button{
+  font-family: var(--texto) !important;
+}
 
 
 /* -------------------- EXTRA BONUS: RESPONSIVO AUTOMÁTICO -------------------- */
