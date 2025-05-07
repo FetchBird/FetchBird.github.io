@@ -12,8 +12,10 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro */
-    z-index: 998; /* Abaixo do modal */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fundo escuro */
+    z-index: 998;
+    /* Abaixo do modal */
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
@@ -27,7 +29,7 @@ body.modal-open .modal-overlay {
 
 .contact-container {
     background-color: var(--branco);
-    border: 1px solid rgba(0, 0, 0, 0.1); 
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     max-width: 1200px;
     width: min(50%, 50vw);
@@ -35,7 +37,8 @@ body.modal-open .modal-overlay {
     left: 50%;
     transform: translateX(-50%);
     position: fixed;
-    z-index: 999; /* Garantir que o modal fique acima do overlay */
+    z-index: 999;
+    /* Garantir que o modal fique acima do overlay */
 }
 
 .contact {
@@ -46,7 +49,6 @@ body.modal-open .modal-overlay {
 }
 
 .contact h3 {
-    font-family: var(--titulo);
     font-size: var(--tamanho-titulo-medio);
     margin-top: 10px;
 }
@@ -62,7 +64,6 @@ body.modal-open .modal-overlay {
 }
 
 .contact label {
-    font-family: var(--texto);
     font-size: var(--tamanho-texto-pequeno);
 }
 
@@ -179,8 +180,8 @@ body.modal-open .modal-overlay {
     padding: 8px;
 }
 
-select, option {
-    font-family: var(--texto);
+select,
+option {
     font-size: var(--tamanho-texto-pequeno);
 }
 
@@ -199,14 +200,20 @@ select, option {
 
 .contact-container .contact .button-container button {
     cursor: pointer;
-    border: 1px solid #CED4DA;
-    border-radius: 5px;
+    border: none;
+    border-radius: 8px;
     background-color: var(--laranja);
-    padding: 5px 20px;
-    font-family: var(--titulo);
-    font-weight: var(--peso-destaque);
+    padding: 10px 20px;
+    font-weight: var(--peso-titulo);
     font-size: var(--tamanho-texto-pequeno);
-    letter-spacing: 0.5px;
+    letter-spacing: 0.8px;
     margin-top: 20px;
     margin-bottom: 30px;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    font-family: var(--texto);
+}
+
+.contact-container .contact .button-container button:hover {
+    background-color: #e59d1f;
 }

@@ -1,9 +1,9 @@
-#project {
-    width: 20%;
-}
+/* --------------------------- SETA  --------------------------------*/
 
 .arrow-container {
-    position: absolute;
+    display: flex;
+    justify-content: end;
+    /* position: absolute; */
 }
 
 .arrow-dot {
@@ -19,28 +19,31 @@
 .seta {
     position: relative;
     width: 200px;
-    /* comprimento inicial */
     height: 10px;
+    right: 30%;
 }
 
 .corpo {
+    display: flex;
+    justify-content: end;
     background: black;
     height: 50%;
-    width: 100%;
+    width: 189%;
     border-radius: 5px;
-    /* deixa o corpo arredondado */
     position: relative;
 }
 
 /* Pontas */
 
 .ponta-container {
-    border:1px solid red;
+    display: flex;
+    justify-content: end;
+    /* border: 1px solid red; */
     width: 40px;
     height: 40px;
-    /* position: relative;
-    top: -35%;
-    left: 0%; */
+    /* position: absolute; */
+    top: -385%;
+    left: 79.6%;
 }
 
 .ponta {
@@ -48,7 +51,7 @@
     width: 20px;
     height: 4px;
     background: black;
-    top: 13%;
+    /* top: 20%; */
     transform-origin: left center;
     border-radius: 2px;
 }
@@ -67,13 +70,68 @@
 }
 
 .ponta-esquerda {
-    top: 0;
+    top: 50%;
     left: 100%;
     transform: rotate(140deg);
 }
 
 .ponta-direita {
-    top: 16%;
+    top: 50%;
     left: 100%;
     transform: rotate(-138deg);
+}
+
+/* --------------------------- GERAL  --------------------------------*/
+
+.services {
+    width: 200%;
+    display: flex;
+}
+
+.services-scroll {
+    display: flex;
+    align-items: start;
+    margin-top: 50px;
+}
+
+#project {
+    width: 200px;
+}
+
+#rocket {
+    width: 200px;
+    margin-left: 100px;
+}
+
+h1 {
+    font-family: var(--titulo);
+    font-size: var(--tamanho-titulo-grande);
+    font-weight: var(--peso-texto);
+}
+
+h1 span {
+    display: block;
+}
+
+#first-checklist {
+    margin-left: 10%;
+    /* margin-right: 50%; */
+}
+
+#second-checklist {
+    padding-left: 10%;
+    /* margin-right: 50%; */
+}
+
+.service-first-container {
+    width: 50%;
+    height: 100vh !important;
+    background-color: tomato;
+    height: 100px;
+}
+
+.service-second-container {
+    width: 50%;
+    height: 100vh !important;
+  background-color: cyan;
 }
