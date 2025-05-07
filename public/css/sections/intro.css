@@ -1,6 +1,6 @@
 
 .intro{
-  height: 83vh;
+  min-height: 85vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,8 +14,8 @@
 .btn_contato:hover{background-color: var(--roxo-escuro);}
 .btn_contato{ 
   border: none;
-  width: 185px;
-  height: 45px;
+  width: 205px;
+  height: 65px;
   background-color: var(--roxo);
   padding: 13px;
   border-radius: 5px;
@@ -69,6 +69,7 @@
   position: relative;
   top: -10px;
   width: 100%;
+
 }
 
 .image-wrapper img{
@@ -236,6 +237,7 @@
 }
 .btn_contato:hover{background-color: var(--roxo-escuro);}
 .btn_contato{ 
+
   border: none;
   width: 185px;
   height: 40px;
@@ -302,6 +304,19 @@
 }
 }
 /* TV*/
+@media (max-width: 1699px) and (min-width: 1440px){
+
+  .content-wrapper{flex: 0 0 45%;}
+.image-wrapper {flex: 0 0 35%;}
+.hero-title{
+  font-size: 70px;
+  line-height: 1.3em;
+ }
+ .hero-subtitle{
+  font-size: 28px;
+  width: 695px;
+ }
+}
 @media (min-width: 1700px){
  .intro{
   align-items: start;
@@ -322,12 +337,10 @@
   
  }
 
- .image-wrapper, .content-wrapper {
-   
-  flex: 1 0 calc(40% - 10px); /* 10px = metade do gap */
-}
+  .content-wrapper{flex: 0 0 50%;}
+.image-wrapper {flex: 0 0 40%;}
  .hero-title{
-  font-size: 80px;
+  font-size: 75px;
   line-height: 1.3em;
  }
  .hero-subtitle{
