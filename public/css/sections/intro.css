@@ -68,6 +68,7 @@
 .svg{
   position: relative;
   top: -10px;
+  width: 100%;
 }
 
 .image-wrapper img{
@@ -314,7 +315,7 @@
 
  .image-wrapper, .content-wrapper {
    
-  flex: 1 0 calc(50% - 10px); /* 10px = metade do gap */
+  flex: 1 0 calc(40% - 10px); /* 10px = metade do gap */
 }
  .hero-title{
   font-size: 80px;
@@ -322,7 +323,7 @@
  }
  .hero-subtitle{
   font-size: 28px;
-  width: 860px;
+  width: 695px;
  }
  .btn_contato{
   width: 400px;
@@ -330,6 +331,20 @@
   height: 10vh;
   margin-top: 10px;
  }
+.invite{
+  
+  margin-left: 90px;
+}
+.invite button{
+  height: 60px;
+  width: 350px;
+  font-size: 24px;
+}
+.box img{ width: 50px;}
+.box{ gap: 20px;}
+.invite h2{ font-size: 45px; font-weight: bold;}
+.invite p{  font-family: var(--texto); width: 800px; font-size: 30px; line-height: 1.4em; margin: 25px 0px 25px 0px;}
+
 }
 /* IPHONE */
 
