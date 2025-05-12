@@ -2,32 +2,34 @@
 
 .arrow-container {
     display: flex;
+    /* display: none; */
     justify-content: end;
-    /* position: absolute; */
+    position: absolute;
+    top: 5%;
+    left: 26.5%;
 }
 
 .arrow-dot {
-    width: 12px;
-    height: 12px;
+    width: 15px;
+    height: 15px;
     background-color: #1a001a;
     border-radius: 50%;
     margin-right: 8px;
     position: absolute;
-    bottom: 10%;
+    bottom: 3%;
 }
 
 .seta {
     position: relative;
     width: 200px;
     height: 10px;
-    right: 30%;
 }
 
 .corpo {
     display: flex;
     justify-content: end;
     background: black;
-    height: 50%;
+    height: 33%;
     width: 189%;
     border-radius: 5px;
     position: relative;
@@ -42,8 +44,8 @@
     width: 40px;
     height: 40px;
     /* position: absolute; */
-    top: -385%;
-    left: 79.6%;
+    top: -602%;
+    left: 89.6%;
 }
 
 .ponta {
@@ -83,55 +85,77 @@
 
 /* --------------------------- GERAL  --------------------------------*/
 
+.services h1 {
+    font-family: var(--titulo);
+    font-size: var(--tamanho-titulo-grande);
+    font-weight: var(--peso-texto);
+    margin-bottom: 35px;
+}
+
+.services h1 span {
+    display: block;
+}
+
 .services {
     width: 200%;
     display: flex;
 }
 
-.services-scroll {
+.service-first-container {
     display: flex;
-    align-items: start;
-    margin-top: 50px;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100vh !important;
+    /* background-color: tomato; */
 }
 
 #project {
-    width: 200px;
-}
-
-#rocket {
-    width: 200px;
-    margin-left: 100px;
-}
-
-h1 {
-    font-family: var(--titulo);
-    font-size: var(--tamanho-titulo-grande);
-    font-weight: var(--peso-texto);
-}
-
-h1 span {
-    display: block;
+    width: 35%;
 }
 
 #first-checklist {
-    margin-left: 10%;
-    /* margin-right: 50%; */
+    height: fit-content;
 }
 
-#second-checklist {
-    padding-left: 10%;
-    /* margin-right: 50%; */
+.services button {
+    background-color: var(--roxo-escuro);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
 }
 
-.service-first-container {
-    width: 50%;
-    height: 100vh !important;
-    background-color: tomato;
-    height: 100px;
+.check-icon-container {
+    width: 4%;
+    margin-right: 10px;
+}
+
+.services li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 .service-second-container {
-    width: 50%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
     height: 100vh !important;
-  background-color: cyan;
+    /* background-color: cyan; */
+}
+
+#second-checklist {
+    height: fit-content;
+    padding-left: 10%;
+    margin-top: -3.4%;
+}
+
+#rocket {
+    width: 34%;
+    /* margin-left: 10%; */
 }
