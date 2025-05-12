@@ -56,11 +56,8 @@ export function setupSupport() {
         path: 'public/assets/images/support/rocket.json'
     });
 
-    const seta = document.querySelector(".seta");
-    const services = document.querySelector(".services");
-    
-    let initialWidth = 200; // px
-    let maxAdditionalWidth = services.scrollWidth;
+    const seta = document.querySelector(".arrow-container");
+    let setaPosicao = seta.getBoundingClientRect().left;
 
     gsap.registerPlugin(ScrollTrigger);
     ScrollTrigger.matchMedia({
@@ -77,15 +74,18 @@ export function setupSupport() {
                     anticipatePin: 1,
                     markers: false, // coloque true se quiser ver os marcadores,
                     onUpdate: (self) => {
-                        console.log('aumentando a seta')
-                        const services = document.querySelector('.services');
+                        console.log('aumentando a seta');
+                        let setaLargura = seta.getBoundingClientRect().width;
+                        let setaPosicaoAtual = seta.getBoundingClientRect().left;
 
-                        const currentX = gsap.getProperty(services, "x"); // em pixels, geralmente negativo
-
-                        const deslocamento = Math.abs(currentX); // quanto já andou pra direita
-                        const newWidth = initialWidth + deslocamento; // cresce conforme anda
-
-                        seta.style.width = `${newWidth}px`;
+                        let paiLargura = seta.parentElement.getBoundingClientRect().width;
+                        console.log(setaPosicaoAtual)
+                        let porcetagem = (setaLargura / paiLargura) * 100;
+                        if (setaPosicaoAtual > setaPosicao) {
+                            seta.style.width = `${porcetagem + 0.2}%`;
+                        } else {
+                            seta.style.width = `${porcetagem - 0.2}%`;
+                        }
                     }
                 }
             });
