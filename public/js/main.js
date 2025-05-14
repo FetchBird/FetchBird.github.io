@@ -1,6 +1,6 @@
 import { setupContactForm } from "./modules/contactForm.js";
 import { setupSupport } from "./modules/support.js";
-
+import {ativarFiltro} from './modules/filter.js';
 window.onload = () => {
     const botao = document.querySelector('.btn-mobile');
     const nav = document.querySelector('nav[aria-label="nav_principal"]');
@@ -13,4 +13,5 @@ window.onload = () => {
     const contactButton = document.querySelector('.btn_contato');
     setupContactForm(contactButton);
     setupSupport();
+    ativarFiltro();
 };

@@ -27,7 +27,8 @@
   align-items: center;
 }
 [aria-label="nav_principal"] ul li:hover{ transition: .2s;  scale: 1.1;}
-[aria-label="nav_principal"] ul li{ margin-left: 20px;}
+[aria-label="nav_principal"] ul li{ margin-left: 20px; color: var(--roxo-escuro) !important; 
+}
 .btn-mobile{  display: none;}
 
 .btn_principal{ 
@@ -80,6 +81,7 @@
   height: 33%;
   display: flex;
   align-items: center;
+  color: var(--roxo-escuro) !important;
   justify-content: center;
   margin: 2px 0px 0px 0px;
    text-align: center;

@@ -1,4 +1,128 @@
-.slider_bird{
+.slider_bird {
   height: 130vh;
   background-color: var(--roxo-escuro);
+  display: flex;
+  flex-direction: column;
+}
+
+.slide_portfolio_container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;/* ocupa todo o espaço da .slider_bird */
+}
+
+.filter-container {
+  padding: 20px;
+  display: flex;
+
+  align-items: center;
+  justify-content: end;
+  height: 10%; /* ocupa 10% do container pai */
+  min-height: 50px; /* previne ficar pequeno demais */
+}
+.filter-container button:hover{
+  background-color: var(--roxo);
+  color: var(--branco)
+}
+.filter-container button{
+  flex-shrink: 0;
+  border: none;
+  width: 205px;
+  height: 54px;
+  background-color: var(--laranja);
+  padding: 13px;
+  border-radius: 5px;
+  color: var(--roxo-escuro);
+  font-weight: var(--peso-titulo);
+  transition: .2s;
+
+  z-index: 100;
+}
+.filter-container ul li.ativo{
+  background-color: var(--roxo);
+  color: var(--branco) !important;
+}
+
+.filter-container ul li{
+  transition: .2s;
+  width: 100%;
+ cursor:pointer;
+  padding: 5px;
+  margin: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+   height: 6vh;
+  border-radius: 5px;
+  color: var(--roxo-escuro) !important;
+}
+.filter-container ul.ativo{
+ opacity: 1;
+ width: 100% !important;
+}
+.filter-container ul {
+  transition: .2s;
+  display: flex;
+  overflow: hidden;
+  opacity: 0;
+  width: 0% !important;
+  background-color:#e5f4ff;
+  padding: 5px;
+  gap: 5px;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 1px;
+  width: 100%;
+  margin-right: 10px;
+}
+
+.portfolios {
+  border: 5px solid var(--branco);
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: center;
+  height: 90%; /* ocupa 90% do container pai */
+}
+.portfolios h1{
+  color: var(--branco);
+}
+
+@media ( max-width: 1180px) and ( min-width: 1000px) {
+  .filter-container ul li{
+    font-size: 12px;
+  }
+
+}
+
+@media (max-width: 999px) {
+
+
+  .filter-container {
+    position: relative;
+    width: 100%;
+    
+  }
+  .filter-container ul.ativo{
+    opacity: 1;
+    width: 100% !important;
+   }
+   .filter-container ul {
+    position: absolute;
+    top: 100%; /* cola o topo do ul ao fundo do pai */
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: column;
+    display: flex;
+    z-index: 1000;
+    margin: 0;
+  }
+
+  .filter-container button{
+     height: 35px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+      
+  }
 }
