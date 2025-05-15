@@ -1,5 +1,5 @@
 .slider_bird {
-  height: 130vh;
+  height: 150vh;
   background-color: var(--roxo-escuro);
   display: flex;
   flex-direction: column;
@@ -14,19 +14,35 @@
 }
 .filterOptionals span{
   display: flex;
+  gap: 5px;
 }
 .filterOptionals span img{
   width: 20px;
 }
-.filterOptionals button:first-of-type {
-  /* Estilo do primeiro botão */
+.exit:hover{
   border-radius: 10px 0px 0px 0px;
-}
-.filterOptionals button:nth-of-type(2):hover{
   background-color: var(--roxo-escuro);
   border: 1px solid white;
 }
-.filterOptionals button:nth-of-type(2) {
+.exit{
+  transition: .3s;
+  background-color: var(--roxo);
+  color: white;
+  font-weight: bold;
+  width: 50px;
+  border: none;
+}
+.filterOptionals button:nth-of-type(2):hover {
+  /* Estilo do primeiro botão */
+  border-radius: 10px 0px 0px 0px;
+}
+.filterOptionals button:nth-of-type(3):hover{
+  border-radius: 10px 0px 0px 0px;
+  background-color: var(--roxo-escuro);
+  border: 1px solid white;
+}
+
+.filterOptionals button:nth-of-type(3) {
   border: 1px solid var(--roxo);
   /* Estilo do segundo botão */
   background-color: var(--roxo);
@@ -67,11 +83,11 @@
   border: none;
   width: 105px;
   height: 34px;
-  background-color: var(--laranja);
+  background-color: var(--roxo);
+  color: white;
+  font-weight: bold;
   padding: 13px;
  
-  color: var(--roxo-escuro);
-  font-weight: var(--peso-titulo);
   transition: .2s;
 
   z-index: 100;
@@ -138,7 +154,9 @@
 }
 
 .portfolios {
-  border: 5px solid var(--branco);
+  background: url('../../assets/images/support/teste.png');
+  background-repeat: repeat;
+  background-size: cover;
   display: flex;
   margin-top: 10px;
   align-items: center;
@@ -157,25 +175,38 @@
 }
 
 @media (max-width: 999px) {
- 
+  .portfolios{
+    background: url('');
+  }
 
   .filter-container {
     position: relative;
     width: 100%;
   }
   .filterOptionals{
-    position: absolute;
-    position: absolute;
-    top: 100%; /* cola o topo do ul ao fundo do pai */
+     position: fixed;
+    bottom: 0%; /* cola o topo do ul ao fundo do pai */
     left: 50%;
+    z-index: 1001 !important;
     transform: translateX(-50%);
+  }
+  .filter-container div.ativo{
+    width: 100%;
+    opacity: 1;
+   
   }
    .filter-container ul {
     width: 90%;
+   
     flex-direction: column;
     display: flex;
     z-index: 1000;
     margin: 0;
+  }
+
+  .cat{
+    width: 45% !important;
+    height: 45px !important;
   }
 
   .filter-container button{

@@ -75,7 +75,7 @@
 .svgbottom{
   position: relative;
   width: 100%;
-  top: -33px;
+  top: -40px;
 }
 
 .image-wrapper img{
@@ -127,6 +127,9 @@
 .hero-subtitle{font-size: 20px;}
 .content-wrapper{flex: 0 0 60%;}
 .image-wrapper {flex: 0 0 40%;}
+.svgbottom{
+  top: -45px;
+}
 
 }
 
@@ -185,7 +188,7 @@
 
 /* Samsung */
 @media (max-width: 750px) and (max-height: 849px) and (min-height: 696px) {
-
+ 
   .intro{
   height: 85vh;
   display: flex;
@@ -229,7 +232,9 @@
   margin-top: 5px;
   color: var(--branco) !important;
 }
-
+.svgbottom{
+  top: -15px !important;
+}
 } 
 @media (max-width: 850px) and (max-height: 315px) {
   
@@ -297,6 +302,9 @@
   justify-content: center;
   align-items: center;
 }
+.svgbottom{
+  top: -40px;
+}
 .invite{
   margin: 0;
   display: flex;
@@ -333,7 +341,7 @@
   .svgbottom{
     position: relative;
     width: 100%;
-    top: -70px;
+    top: -74px;
   }
  .intro{
   align-items: start;

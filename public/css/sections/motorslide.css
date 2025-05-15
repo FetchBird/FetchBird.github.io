@@ -1,0 +1,41 @@
+
+.slide-placeholder {
+  height: 240vh;
+  display: flex;
+
+  position: relative;
+}
+
+.slide { 
+  transition: .1s;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.slide-placeholder .back{
+  align-items: end !important;
+}
+
+.slider .listSlides {
+  display: flex;
+  transition: transform 0.1s ease-out;
+}
+
+.slider .listSlides div {
+  flex-shrink: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+.slide1{
+  
+  display: flex;
+  flex-direction: column;
+}
+
+
+
