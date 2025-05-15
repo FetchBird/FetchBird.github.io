@@ -3,6 +3,7 @@
   background-color: var(--roxo-escuro);
   display: flex;
   flex-direction: column;
+  overflow: hidden !important;
 }
 
 .slide_portfolio_container {
@@ -161,7 +162,6 @@
   .filter-container {
     position: relative;
     width: 100%;
-    
   }
   .filterOptionals{
     position: absolute;
@@ -171,7 +171,7 @@
     transform: translateX(-50%);
   }
    .filter-container ul {
- 
+    width: 90%;
     flex-direction: column;
     display: flex;
     z-index: 1000;
