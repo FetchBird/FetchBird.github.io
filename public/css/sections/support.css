@@ -1,8 +1,8 @@
 /* --------------------------- SETA  --------------------------------*/
 
 .arrow-container {
-    display: flex;
-    /* display: none; */
+    /* display: flex; */
+    display: none;
     justify-content: end;
     position: absolute;
     top: 5%;
@@ -88,7 +88,7 @@
 
 .services h1 {
     font-family: var(--titulo);
-    font-size: var(--tamanho-titulo-grande);
+    font-size: clamp(1.7rem, var(--tamanho-titulo-grande), 90px);
     font-weight: var(--peso-texto);
     margin-bottom: 35px;
 }
@@ -113,8 +113,7 @@
 }
 
 #project {
-    width: 35vw;
-    /* width: 35%; */
+    width: clamp(20%, 35vw, 1000px);
 }
 
 #first-checklist {
@@ -128,8 +127,8 @@
     padding: 15px 20px;
     border-radius: 8px;
     cursor: pointer;
-    font-size: var(--tamanho-texto-pequeno);
-    /* font-size: 16px; */
+    font-size: clamp(1rem, var(--tamanho-texto-pequeno), 30px);
+    font-weight: var(--peso-titulo);
     margin-top: 10px;
 }
 
@@ -142,7 +141,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    font-size: clamp(1rem, var(--tamanho-texto-pequeno), var(--tamanho-texto-pequeno))
+    font-size: clamp(1.1rem, var(--tamanho-texto-pequeno), 30px)
 }
 
 .service-second-container {
@@ -151,23 +150,44 @@
     align-items: center;
     width: 100%;
     height: 100vh !important;
-    /* background-color: cyan; */
 }
 
 #second-checklist {
     height: fit-content;
-    /* padding-left: 10%; */
     margin-top: -3.4%;
 }
 
 #rocket {
-    width: 34%;
+    width: clamp(20%, 34vw, 870px);
     margin-left: -15vw;
 }
 
 @media (max-width: 750px) {
-    .services {
-        width: 100%;
+    .service-first-container {
+        display: flex;
         flex-direction: column;
+    }
+
+    #first-checklist {
+        text-align: center;
+    }
+
+    #first-checklist > div {
+        display: flex;
+        justify-content: center;
+    }
+
+    .services ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .services li {
+        justify-content: center;
+    }
+
+    .check-icon-container {
+        width: 20px;
     }
 }

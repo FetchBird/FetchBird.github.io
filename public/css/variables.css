@@ -16,15 +16,18 @@
     --logo:"Quicksand";
 
     /* Tamanhos de fonte */
+    --tamanho-titulo-extra-grande: 4.5vw;
     --tamanho-titulo-grande: 3vw;
     --tamanho-titulo-medio: 2.33vw;
     --tamanho-texto: 1.66vw;
     --tamanho-texto-pequeno: 1vw;
 
     /* Pesos de fonte */
+    --peso-titulo-extra: 800; /* ExtraBold */
     --peso-titulo: 700; /* Bold */
+    --peso-destaque: 600; /* SemiBold */
+    --peso-texto-extra: 500; /* ExtraRegular */
     --peso-texto: 400; /* Regular */
-    --peso-destaque: 800; /* Medium */
 
 
     /*GRID*/

@@ -1,6 +1,7 @@
 import lottie from '../libs/lottie/lottie.min.js';
 import { gsap } from "../libs/gsap-public/esm/all.js";
 import { ScrollTrigger } from "../libs/gsap-public/esm/ScrollTrigger.js";
+import { isMobile } from '../utils/deviceDetector.js';
 
 const seta = document.querySelector(".arrow-container");
 const services = document.querySelector(".services");
@@ -117,6 +118,7 @@ export function setupSupport() {
         path: 'public/assets/images/support/rocket.json'
     });
 
-    // console.log('isMobileDevice', isMobileDevice())
-    scrollLateral();
+    if (!isMobile()) {
+        scrollLateral();
+    }
 }

@@ -23,6 +23,10 @@ p,span, label, li, select, option {
   font-family: var(--texto);
 }
 
+button {
+  letter-spacing: 0.05em;
+}
+
 /* -------------------- EXTRA BONUS: RESPONSIVO AUTOMÁTICO -------------------- */
 
 /* Exemplo de responsividade moderna com clamp() */
