@@ -3,6 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding-top: clamp(20px, 20px, 25px);
+  z-index: 9999;
 }
 
 .logo {
@@ -39,6 +40,7 @@
 }
 
 [aria-label="nav_principal"] ul li {
+  color: var(--roxo-escuro) !important;
   margin-left: 20px;
   font-size: clamp(16px, var(--tamanho-texto-pequeno), 16px);
 }

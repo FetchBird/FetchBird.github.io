@@ -4,10 +4,17 @@ export function ativarFiltro() {
   const filterItems = listeFilter.querySelectorAll('li');
   const filterOptionals = document.querySelector(".filterOptionals");
   const filterOpt = document.querySelectorAll(".app");
+  const btnExit = document.querySelector(".exit");
+  
 
   // Toggle para abrir/fechar o filtro
   btn.addEventListener('click', (e) => {
     filterOptionals.classList.toggle('ativo');
+  });
+
+  // Toggle para abrir/fechar o filtro
+  btnExit.addEventListener('click', (e) => {
+    filterOptionals.classList.remove('ativo');
   });
 
   filterItems.forEach(li => {
