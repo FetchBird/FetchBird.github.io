@@ -168,11 +168,16 @@
         flex-direction: column;
     }
 
+    .service-second-container {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
     #first-checklist {
         text-align: center;
     }
 
-    #first-checklist > div {
+    #first-checklist>div {
         display: flex;
         justify-content: center;
     }
@@ -191,3 +196,27 @@
         width: 20px;
     }
 }
+
+
+/* --------------------------------------------------------------------------------------- */
+
+/* Telas muito grandes */
+@media (min-width: 1700px) {}
+
+@media (max-width: 1699px) and (min-width: 1440px) {}
+
+/* Intermediárias (laptops/tablets grandes) */
+@media (max-width: 1200px) and (min-width: 899px) and (max-height: 1100px) and (min-height: 296px) {}
+
+/* Tablets e celulares em pé */
+@media (max-width: 898px) and (max-height: 1100px) and (min-height: 296px) {}
+
+@media (max-width: 898px) {}
+
+/* Celulares específicos */
+@media (max-width: 850px) and (max-height: 315px) {}
+
+@media (max-width: 750px) and (max-height: 849px) and (min-height: 696px) {}
+
+/* Celular em paisagem (landscape) */
+@media (orientation: landscape) and (max-width: 932px) and (min-width: 820px) and (max-height: 430px) and (min-height: 375px) {}

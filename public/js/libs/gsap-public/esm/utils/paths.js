@@ -861,7 +861,7 @@ export function stringToRawPath(d) {
   };
 
   if (!d || !isNaN(a[0]) || isNaN(a[1])) {
-    console.log(errorMessage);
+    (errorMessage);
     return path;
   }
 
@@ -1010,7 +1010,7 @@ export function stringToRawPath(d) {
       relativeX = segment[segment.length - 2];
       relativeY = segment[segment.length - 1];
     } else {
-      console.log(errorMessage);
+      (errorMessage);
     }
   }
 

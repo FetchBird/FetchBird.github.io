@@ -2,52 +2,49 @@ import lottie from '../libs/lottie/lottie.min.js';
 import { gsap } from "../libs/gsap-public/esm/all.js";
 import { ScrollTrigger } from "../libs/gsap-public/esm/ScrollTrigger.js";
 import { isMobile } from '../utils/deviceDetector.js';
+import { setupSlideTrigger } from "./trigger.js";
 
-const seta = document.querySelector(".arrow-container");
-const services = document.querySelector(".services");
-const secondContainer = document.querySelector(".service-second-container");
 
-const observer = new IntersectionObserver((entries) => {
-    const entry = entries[0];
-    console.log('entry', entry.isIntersecting)
-    if (entry.isIntersecting) {
-        console.log('Elemento visível!');
-        observer.unobserve(entry.target); // opcional: para de observar depois de disparar
-    }
-}, {
-    root: null,
-    threshold: 0.3
-});
+// const seta = document.querySelector(".arrow-container");
+// const services = document.querySelector(".services");
+// const secondContainer = document.querySelector(".service-second-container");
 
-observer.observe(secondContainer);
+// const observer = new IntersectionObserver((entries) => {
+//     const entry = entries[0];
+//     if (entry.isIntersecting) {
+//         observer.unobserve(entry.target); // opcional: para de observar depois de disparar
+//     }
+// }, {
+//     root: null,
+//     threshold: 0.3
+// });
 
-// let setaLargura = seta.getBoundingClientRect().width;
-// let paiLargura = seta.parentElement.getBoundingClientRect().width;
-// let porcetagem = (setaLargura / paiLargura) * 100;
+// observer.observe(secondContainer);
 
-let porcetagem = 5
+// // let setaLargura = seta.getBoundingClientRect().width;
+// // let paiLargura = seta.parentElement.getBoundingClientRect().width;
+// // let porcetagem = (setaLargura / paiLargura) * 100;
 
-let servicesLeftUltima = services.getBoundingClientRect().left;
+// let porcetagem = 5
 
-function setaAnimacao() {
-    let setaPosicaoAtual = seta.getBoundingClientRect().left;
-    let servicesLeftAtual = services.getBoundingClientRect().left;
-    console.log('container', secondContainer.getBoundingClientRect().left)
-    console.log('window', window.innerWidth)
-    console.log('------------------------------------')
-    if (servicesLeftAtual > servicesLeftUltima) {
-        if (porcetagem > 5) {
-            porcetagem -= 0.2
-            seta.style.width = `${porcetagem}%`;
-        }
-    } else {
-        if (porcetagem < 17) {
-            porcetagem += 0.2
-            seta.style.width = `${porcetagem}%`;
-        }
-    }
-    servicesLeftUltima = servicesLeftAtual;
-}
+// let servicesLeftUltima = services.getBoundingClientRect().left;
+
+// function setaAnimacao() {
+//     let setaPosicaoAtual = seta.getBoundingClientRect().left;
+//     let servicesLeftAtual = services.getBoundingClientRect().left;
+//     if (servicesLeftAtual > servicesLeftUltima) {
+//         if (porcetagem > 5) {
+//             porcetagem -= 0.2
+//             seta.style.width = `${porcetagem}%`;
+//         }
+//     } else {
+//         if (porcetagem < 17) {
+//             porcetagem += 0.2
+//             seta.style.width = `${porcetagem}%`;
+//         }
+//     }
+//     servicesLeftUltima = servicesLeftAtual;
+// }
 
 function scrollLateral() {
 
@@ -120,5 +117,21 @@ export function setupSupport() {
 
     if (!isMobile()) {
         scrollLateral();
+    } else {
+        console.log('mobile');
+        const slideContainer = document.querySelector('.slide-container');
+        const sliderContainer = document.querySelector('.slider-container');
+        const services = document.querySelector('.services');
+        const servicesContainer = document.querySelector('.services-container');
+        const firstContainer = document.querySelector('.service-first-container');
+        const secondContainer = document.querySelector('.service-second-container');
+        slideContainer.classList.add('slide');
+        sliderContainer.classList.add('slider');
+        services.classList.add('listSlides');
+        servicesContainer.classList.add('slide-placeholder');
+        firstContainer.classList.add('slide1');
+        secondContainer.classList.add('slide2');
+
+        setupSlideTrigger();
     }
 }
