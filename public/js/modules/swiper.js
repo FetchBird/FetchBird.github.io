@@ -6,9 +6,9 @@ export function InitSwiper({
   direcao = 'left',
   velocidade = 30,
 } = {}) {
+
   const direction = direcao.toLowerCase();
   const container = document.querySelector(swiperClass);
-
   const swiper = new Swiper(swiperClass, {
     slidesPerView: 'auto',
     spaceBetween: 30,
@@ -23,7 +23,6 @@ export function InitSwiper({
   let pos;
   let currentSpeed = velocidade;
   let targetSpeed = velocidade;
-
   let animationFrame;
   let lastTime = null;
 
@@ -33,11 +32,9 @@ export function InitSwiper({
 
   /** 🔥 Função que remove clones e recalcula dimensões */
   function recalculate() {
-    // Remove clones existentes
     const clones = wrapper.querySelectorAll('.swiper-slide-duplicate');
     clones.forEach(clone => clone.remove());
 
-    // Faz os clones novamente
     for (let i = 0; i < 2; i++) {
       originalSlides.forEach(slide => {
         const clone = slide.cloneNode(true);
@@ -46,10 +43,7 @@ export function InitSwiper({
       });
     }
 
-    // 🔥 Recalcula o totalWidth baseado no novo tamanho
     totalWidth = getTotalSlidesWidth(wrapper.children) / 3;
-
-    // Ajusta a posição para não pular
     pos = direction === 'left' ? 0 : -totalWidth;
   }
 
@@ -80,34 +74,19 @@ export function InitSwiper({
   recalculate();
   animationFrame = requestAnimationFrame(loop);
 
-  /** 🖥️ Começa a observar mudanças de tamanho */
   originalSlides.forEach(slide => observer.observe(slide));
 
-  /** 🎯 Hover e touch pausam */
-  const hoverElements = container.querySelectorAll(hoverClass);
-
-  hoverElements.forEach(el => {
-    el.addEventListener('mouseenter', () => {
+  /** 🎯 Hover e touch pausam usando delegação de eventos */
+  addHoverListeners(container, hoverClass,
+    (el) => {
       targetSpeed = 0;
       el.classList.add('ativo');
-    });
-    el.addEventListener('mouseleave', () => {
+    },
+    (el) => {
       targetSpeed = velocidade;
       el.classList.remove('ativo');
-    });
-    el.addEventListener('touchstart', () => {
-      targetSpeed = 0;
-      el.classList.add('ativo');
-    }, { passive: true });
-    el.addEventListener('touchend', () => {
-      targetSpeed = velocidade;
-      el.classList.remove('ativo');
-    });
-    el.addEventListener('touchcancel', () => {
-      targetSpeed = velocidade;
-      el.classList.remove('ativo');
-    });
-  });
+    }
+  );
 
   /** 🎛️ API pública */
   return {
@@ -133,4 +112,30 @@ function getTotalSlidesWidth(slides) {
     total += width + marginLeft + marginRight;
   }
   return total;
+}
+
+
+/** ✅ Função auxiliar para hover e touch delegados */
+function addHoverListeners(container, selector, onEnter, onLeave) {
+  container.addEventListener('mouseenter', e => {
+    const target = e.target.closest(selector);
+    if (target) onEnter(target);
+  }, true);
+
+  container.addEventListener('mouseleave', e => {
+    const target = e.target.closest(selector);
+    if (target) onLeave(target);
+  }, true);
+
+  container.addEventListener('touchstart', e => {
+    const target = e.target.closest(selector);
+    if (target) onEnter(target);
+  }, { passive: true });
+
+  container.addEventListener('touchend', e => {
+    const target = e.target.closest(selector);
+    if (target) onLeave(target);
+  }, { passive: true });
+
+ 
 }
