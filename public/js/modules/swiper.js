@@ -30,7 +30,6 @@ export function InitSwiper({
     recalculate();
   });
 
-  /** 🔥 Função que remove clones e recalcula dimensões */
   function recalculate() {
     const clones = wrapper.querySelectorAll('.swiper-slide-duplicate');
     clones.forEach(clone => clone.remove());
@@ -47,7 +46,6 @@ export function InitSwiper({
     pos = direction === 'left' ? 0 : -totalWidth;
   }
 
-  /** 🔁 Loop de animação */
   function loop(time) {
     if (lastTime === null) lastTime = time;
     const delta = time - lastTime;
@@ -70,14 +68,13 @@ export function InitSwiper({
     animationFrame = requestAnimationFrame(loop);
   }
 
-  /** 🚀 Inicia tudo */
   recalculate();
   animationFrame = requestAnimationFrame(loop);
 
   originalSlides.forEach(slide => observer.observe(slide));
 
-  /** 🎯 Hover e touch pausam usando delegação de eventos */
-  addHoverListeners(container, hoverClass,
+  /** 🎯 Hover exclusivo no desktop + Toggle via click no mobile e desktop */
+  addExclusiveHoverAndClick(container, hoverClass,
     (el) => {
       targetSpeed = 0;
       el.classList.add('ativo');
@@ -88,7 +85,6 @@ export function InitSwiper({
     }
   );
 
-  /** 🎛️ API pública */
   return {
     pause: () => targetSpeed = 0,
     resume: () => targetSpeed = velocidade,
@@ -101,7 +97,7 @@ export function InitSwiper({
 }
 
 
-/** ✅ Utilitário robusto */
+/** ✅ Calcula a largura dos slides */
 function getTotalSlidesWidth(slides) {
   let total = 0;
   for (const slide of slides) {
@@ -115,27 +111,47 @@ function getTotalSlidesWidth(slides) {
 }
 
 
-/** ✅ Função auxiliar para hover e touch delegados */
-function addHoverListeners(container, selector, onEnter, onLeave) {
-  container.addEventListener('mouseenter', e => {
-    const target = e.target.closest(selector);
-    if (target) onEnter(target);
-  }, true);
+/** ✅ Hover exclusivo + Clique exclusivo */
+function addExclusiveHoverAndClick(container, selector, onEnter, onLeave) {
+  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-  container.addEventListener('mouseleave', e => {
-    const target = e.target.closest(selector);
-    if (target) onLeave(target);
-  }, true);
+  const getActive = () => container.querySelector(`${selector}.ativo`);
 
-  container.addEventListener('touchstart', e => {
+  if (!isTouchDevice) {
+    // Desktop hover
+    container.addEventListener('mouseenter', e => {
+      const target = e.target.closest(selector);
+      if (target) {
+        const active = getActive();
+        if (active && active !== target) {
+          onLeave(active);
+        }
+        onEnter(target);
+      }
+    }, true);
+
+    container.addEventListener('mouseleave', e => {
+      const target = e.target.closest(selector);
+      if (target) {
+        onLeave(target);
+      }
+    }, true);
+  }
+
+  // Clique funciona tanto no desktop quanto no mobile
+  container.addEventListener('click', e => {
     const target = e.target.closest(selector);
-    if (target) onEnter(target);
+    if (!target) return;
+
+    const active = getActive();
+
+    if (active && active === target) {
+      // Se clicou no mesmo, desativa
+      onLeave(target);
+    } else {
+      // Se clicou em outro, desativa o anterior e ativa o novo
+      if (active) onLeave(active);
+      onEnter(target);
+    }
   }, { passive: true });
-
-  container.addEventListener('touchend', e => {
-    const target = e.target.closest(selector);
-    if (target) onLeave(target);
-  }, { passive: true });
-
- 
 }

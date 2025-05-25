@@ -4,6 +4,7 @@ import { ativarFiltro } from "./modules/filter.js";
 import { setupSlideTrigger } from "./modules/trigger.js";
 import { ScrollButtonHandler } from "./modules/header.js";
 import { InitSwiper } from "./modules/swiper.js";
+
 window.onload = () => {
     const botao = document.querySelector('.btn-mobile');
     const nav = document.querySelector('nav[aria-label="nav_principal"]');
@@ -48,5 +49,26 @@ window.onload = () => {
         direcao: 'right',
         velocidade: getSpeed(),
     });
+
+    // Função de redirecionamento
+function redirectToGoogleOnClick(buttonSelector) {
+    console.log('====================================');
+    console.log('ok');
+    console.log('====================================');
+    const buttons = document.querySelectorAll(buttonSelector);
+  
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        window.location.href = 'https://www.google.com';
+        console.log('====================================');
+        console.log('clicou');
+        console.log('====================================');
+      });
+    });
+  }
+  
+  // Ativa nos botões
+  redirectToGoogleOnClick('.hover button');
+  redirectToGoogleOnClick('.cardHover button');
 
 };

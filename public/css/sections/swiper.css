@@ -27,11 +27,15 @@
   transition: none !important;
 }
 
-
+.swiper-slide img{
+   height: 100%;
+   width: 100%;
+   border: 2px solid var(--laranja);
+   border-radius: 5px;
+}
 .swiper-slide {
   cursor:pointer;
-  background-color: var(--laranja);
-  border-radius: 10px;
+  border-radius: 5px;
   position: relative;
   flex-shrink: 0;
   display: flex;
@@ -40,11 +44,12 @@
   height: 295px;
   width: calc((100% - 175px) / 3);
 margin: 0 25px;
+overflow: hidden;
 }
 
 .hover,.cardHover{
-  padding-top: 40px;
-  transition: .2s;
+  padding-top: 400px;
+  transition: .5s;
   top: 0;
   left: 0;
   right: 0;
@@ -55,22 +60,22 @@ margin: 0 25px;
   justify-content: center;
   background-color: var(--roxo);
   opacity: 0;
-  border-radius: 10px;
+  border-radius: 3px;
 }
 
 .hover.ativo, .cardHover.ativo{
   padding-top:0px;
+  padding-bottom: 4px;
   opacity: 1;
 }
 
-.hover button:hover{
+
+.hover button, .cardHover button{
+  opacity: 1;
   background-color: var(--roxo-escuro);
   color: white;
-}
-
-.hover button{
   transition: .1s;
-  height: 50px;
+  height: 80px;
   cursor: pointer;
   border-radius: 5px;
   padding: 15px;
@@ -111,5 +116,18 @@ margin: 0 25px;
     width: 20%;
     height: 150px;
   
+  }
+
+  .hover button, .cardHover button{
+   
+    transition: .1s;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 15px;
+    width: 75%;
   }
 }
