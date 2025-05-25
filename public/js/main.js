@@ -3,6 +3,7 @@ import { setupSupport } from "./modules/support.js";
 import { ativarFiltro } from "./modules/filter.js";
 import { setupSlideTrigger } from "./modules/trigger.js";
 import { ScrollButtonHandler } from "./modules/header.js";
+import { InitSwiper } from "./modules/swiper.js";
 window.onload = () => {
     const botao = document.querySelector('.btn-mobile');
     const nav = document.querySelector('nav[aria-label="nav_principal"]');
@@ -27,4 +28,25 @@ window.onload = () => {
     setupSupport();
     ativarFiltro();
     setupSlideTrigger(); 
+    const speedMobile = 70
+    const speedDesktop = 40
+
+    function getSpeed() {
+        return window.innerWidth <= 890 ? speedMobile : speedDesktop;
+    }
+
+    const swiper1 = InitSwiper({
+        swiperClass: '.swiper',
+        hoverClass: '.hover',
+        direcao: 'left',
+        velocidade: getSpeed(),
+    });
+
+    const swiper2 = InitSwiper({
+        swiperClass: '.swiperII',
+        hoverClass: '.cardHover',
+        direcao: 'right',
+        velocidade: getSpeed(),
+    });
+
 };

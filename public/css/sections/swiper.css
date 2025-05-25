@@ -1,0 +1,111 @@
+.porfolio_slides {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+  gap: 5px;
+}
+
+.swiper,.swiperII{
+ 
+  width: 100%;
+  height: 100%;
+
+ 
+}
+
+.swiper-wrapper {
+  display: flex;
+  align-items: start;
+ 
+  height: 100%;
+  transition-timing-function: linear !important; /* Corrigido aqui */
+}
+
+.swiper-wrapper {
+  will-change: transform;
+  transition: none !important;
+}
+
+
+.swiper-slide {
+  cursor:pointer;
+  background-color: var(--laranja);
+  border-radius: 10px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 295px;
+  width: calc((100% - 175px) / 3);
+margin: 0 25px;
+}
+
+.hover,.cardHover{
+  padding-top: 40px;
+  transition: .2s;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--roxo);
+  opacity: 0;
+  border-radius: 10px;
+}
+
+.hover.ativo, .cardHover.ativo{
+  padding-top:0px;
+  opacity: 1;
+}
+
+.hover button:hover{
+  background-color: var(--roxo-escuro);
+  color: white;
+}
+
+.hover button{
+  transition: .1s;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 15px;
+  width: 75%;
+}
+
+.porfolio_row1 {
+  display: flex;
+  gap: 25px;
+  flex-shrink: 0;
+    margin-top: 60px;
+  height: 35%;
+}
+
+@media (max-width: 999px) {
+  .porfolio_row1{
+ 
+    height: 210px;
+  }
+  .swiper{
+ 
+    height: 200px;
+  }
+  .porfolio_row1{
+    margin: 0px;
+  }
+  .swiper-wrapper{
+  
+    height: 130px;
+
+  }
+.swiper-slide{
+  margin: 5px;
+  width: 20%;
+  height: 150px;
+
+}
+}

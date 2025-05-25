@@ -292,10 +292,15 @@
   .btn_contato {
     margin-top: 5px;
   }
+  
 }
 
 @media (max-width: 850px) and (max-height: 315px) {
-
+  .svgbottom{
+    position: relative;
+    width: 100%;
+    top: -35px;
+  }
   .intro {
     display: grid;
     grid-template-columns: 1fr 200px;
@@ -312,9 +317,9 @@
   .btn_contato:hover {
     background-color: var(--roxo-escuro);
   }
-
+  
   .btn_contato {
-
+    
     border: none;
     background-color: var(--roxo);
     padding: 13px;
@@ -346,6 +351,7 @@
     animation: hatchShake 2s ease-out forwards;
     transform-origin: center;
   }
+  
 }
 
 @media (max-width: 1699px) and (min-width: 1440px) {
@@ -408,6 +414,11 @@
     font-family: var(--texto);
     line-height: 1.4em;
     margin: 35px 0px 35px 0px;
+  }
+  .svgbottom{
+    position: relative;
+    width: 100%;
+    top: -65px;
   }
 }
 

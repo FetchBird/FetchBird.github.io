@@ -2,18 +2,14 @@ export function setupSlideTrigger() {
   const slidePlaceholder = document.querySelector('.slide-placeholder');
   const slideSticky = document.querySelector('.slide');
   const slideContainer = document.querySelector('.slider .listSlides');
-  let isMobile = true;
 
   if (!slidePlaceholder || !slideSticky || !slideContainer) return;
-   
-  
+
   const totalSlides = slideContainer.children.length;
   const speedFactor = 1;
 
   function updateLayout() {
-    
     slidePlaceholder.style.height = `210vh`;
-
     slideContainer.style.width = `${totalSlides * 100}vw`;
   }
 
@@ -24,7 +20,6 @@ export function setupSlideTrigger() {
     const progress = scrolled / scrollDistance;
     const rawTranslate = progress * (totalSlides - 1) * 100 * speedFactor;
     const translateX = Math.min(rawTranslate, (totalSlides - 1) * 100); // limita o final
-
     slideContainer.style.transform = `translateX(-${translateX}vw)`;
   }
 
