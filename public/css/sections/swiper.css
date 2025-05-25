@@ -1,23 +1,18 @@
 .porfolio_slides {
   display: flex;
   flex-direction: column;
-
   height: 100%;
   gap: 5px;
 }
 
 .swiper,.swiperII{
- 
   width: 100%;
   height: 100%;
-
- 
 }
 
 .swiper-wrapper {
   display: flex;
   align-items: start;
- 
   height: 100%;
   transition-timing-function: linear !important; /* Corrigido aqui */
 }
@@ -41,8 +36,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 295px;
-  width: calc((100% - 175px) / 3);
+  height: 245px;
+  width: 25%;
 margin: 0 25px;
 overflow: hidden;
 }
