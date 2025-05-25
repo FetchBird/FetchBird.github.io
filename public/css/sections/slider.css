@@ -167,6 +167,9 @@
 .portfolios h1{
   color: var(--branco);
 }
+.purple{
+  display: none;
+}
 
 @media ( max-width: 1180px) and ( min-width: 1000px) {
   .filter-container ul li{
@@ -216,7 +219,44 @@
       
   }
 }
+@media (max-width: 999px) and (max-height: 790px) {
+  .purple{
+    display: inherit;
+    position: relative;
+    background-color:var(--roxo-escuro);
+    height: 90px;
+  }
+  .purple svg{
+    position: absolute;
+    top: -18px;
+  }
+  .slider_bird {
+    height: 70vh;
+  }
+  
+}
 @media (max-width: 850px) and (max-height: 315px) {
+  .swiper-slide {
+    width:25% !important;
+  }
+  
+  .purple{
+    display: inherit;
+    position: relative;
+    background-color:var(--roxo-escuro);
+    height: 90px;
+  }
+  .svgbottom{
+    opacity: 0;
+    display: none;
+  }
+  .purple svg{
+    position: absolute;
+    top: -25px;
+  }
+  .slider_bird {
+    height: 170vh;
+  }
   .cat{
     width: 25% !important;
     height: 45px !important;

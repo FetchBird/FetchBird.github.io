@@ -17,43 +17,54 @@ export function InitSwiper({
   });
 
   const wrapper = swiper.wrapperEl;
-  const slides = [...swiper.slides];
+  const originalSlides = [...swiper.slides];
 
-  // ✅ Cria 2 cópias (total de 3 blocos de slides)
-  for (let i = 0; i < 2; i++) {
-    slides.forEach(slide => {
-      const clone = slide.cloneNode(true);
-      clone.classList.add('swiper-slide-duplicate');
-      wrapper.appendChild(clone);
-    });
-  }
-
-  const totalWidth = getTotalSlidesWidth(wrapper.children) / 3;
-  let pos = direction === 'left' ? 0 : -totalWidth;
+  let totalWidth;
+  let pos;
   let currentSpeed = velocidade;
   let targetSpeed = velocidade;
 
   let animationFrame;
   let lastTime = null;
 
+  /** 🔥 Função que remove clones e recalcula dimensões */
+  function recalculate() {
+    // Remove clones existentes
+    const clones = wrapper.querySelectorAll('.swiper-slide-duplicate');
+    clones.forEach(clone => clone.remove());
+
+    // Faz os clones novamente
+    for (let i = 0; i < 2; i++) {
+      originalSlides.forEach(slide => {
+        const clone = slide.cloneNode(true);
+        clone.classList.add('swiper-slide-duplicate');
+        wrapper.appendChild(clone);
+      });
+    }
+
+    // 🔥 Recalcula o totalWidth baseado no novo tamanho
+    totalWidth = getTotalSlidesWidth(wrapper.children) / 3;
+
+    // Ajusta a posição para não pular
+    pos = direction === 'left' ? 0 : -totalWidth;
+  }
+
+  /** 🔁 Loop de animação */
   function loop(time) {
     if (lastTime === null) lastTime = time;
     const delta = time - lastTime;
     lastTime = time;
 
     currentSpeed += (targetSpeed - currentSpeed) * 0.1;
-
     const move = (currentSpeed * delta) / 1000;
     const deltaMove = direction === 'left' ? -move : move;
 
     pos += deltaMove;
 
-    // ✅ Loop infinito suave
-    if (direction === 'left' && pos <= -totalWidth) {
-      pos += totalWidth;
-    }
-    if (direction === 'right' && pos >= 0) {
-      pos -= totalWidth;
+    if (direction === 'left') {
+      if (pos <= -totalWidth) pos += totalWidth;
+    } else {
+      if (pos >= 0) pos -= totalWidth;
     }
 
     wrapper.style.transform = `translate3d(${pos}px, 0, 0)`;
@@ -61,9 +72,11 @@ export function InitSwiper({
     animationFrame = requestAnimationFrame(loop);
   }
 
+  /** 🚀 Inicia tudo */
+  recalculate();
   animationFrame = requestAnimationFrame(loop);
 
-  // ✅ Controle individual de hover
+  /** 🎯 Hover e touch pausam */
   const hoverElements = container.querySelectorAll(hoverClass);
 
   hoverElements.forEach(el => {
@@ -76,30 +89,46 @@ export function InitSwiper({
       el.classList.remove('ativo');
     });
     el.addEventListener('touchstart', () => {
-      targetSpeed = 0
-      el.classList.add('ativo')
-      setTimeout(() => {
-        targetSpeed = velocidade
-        el.classList.remove('ativo')
-      }, 1500)
+      targetSpeed = 0;
+      el.classList.add('ativo');
     }, { passive: true });
-   
+    el.addEventListener('touchend', () => {
+      targetSpeed = velocidade;
+      el.classList.remove('ativo');
+    });
+    el.addEventListener('touchcancel', () => {
+      targetSpeed = velocidade;
+      el.classList.remove('ativo');
+    });
   });
 
+  /** 🖥️ Resize listener */
+  window.addEventListener('resize', () => {
+    recalculate();
+  });
+
+  /** 🎛️ API pública */
   return {
     pause: () => targetSpeed = 0,
     resume: () => targetSpeed = velocidade,
-    destroy: () => cancelAnimationFrame(animationFrame),
+    destroy: () => {
+      cancelAnimationFrame(animationFrame);
+      window.removeEventListener('resize', recalculate);
+    },
+    recalculate,
   };
 }
 
+
+/** ✅ Utilitário robusto */
 function getTotalSlidesWidth(slides) {
   let total = 0;
   for (const slide of slides) {
     const style = getComputedStyle(slide);
     const width = slide.offsetWidth;
+    const marginLeft = parseFloat(style.marginLeft) || 0;
     const marginRight = parseFloat(style.marginRight) || 0;
-    total += width + marginRight;
+    total += width + marginLeft + marginRight;
   }
   return total;
 }

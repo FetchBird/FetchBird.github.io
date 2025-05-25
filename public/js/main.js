@@ -28,7 +28,7 @@ window.onload = () => {
     setupSupport();
     ativarFiltro();
     setupSlideTrigger(); 
-    const speedMobile = 70
+    const speedMobile = 50
     const speedDesktop = 40
 
     function getSpeed() {
