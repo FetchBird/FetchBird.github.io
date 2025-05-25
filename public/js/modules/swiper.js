@@ -27,6 +27,10 @@ export function InitSwiper({
   let animationFrame;
   let lastTime = null;
 
+  const observer = new ResizeObserver(() => {
+    recalculate();
+  });
+
   /** 🔥 Função que remove clones e recalcula dimensões */
   function recalculate() {
     // Remove clones existentes
@@ -76,6 +80,9 @@ export function InitSwiper({
   recalculate();
   animationFrame = requestAnimationFrame(loop);
 
+  /** 🖥️ Começa a observar mudanças de tamanho */
+  originalSlides.forEach(slide => observer.observe(slide));
+
   /** 🎯 Hover e touch pausam */
   const hoverElements = container.querySelectorAll(hoverClass);
 
@@ -102,18 +109,13 @@ export function InitSwiper({
     });
   });
 
-  /** 🖥️ Resize listener */
-  window.addEventListener('resize', () => {
-    recalculate();
-  });
-
   /** 🎛️ API pública */
   return {
     pause: () => targetSpeed = 0,
     resume: () => targetSpeed = velocidade,
     destroy: () => {
       cancelAnimationFrame(animationFrame);
-      window.removeEventListener('resize', recalculate);
+      observer.disconnect();
     },
     recalculate,
   };
