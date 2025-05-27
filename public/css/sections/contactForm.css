@@ -38,6 +38,7 @@ body.modal-open .modal-overlay {
     transform: translateX(-50%);
     position: fixed;
     z-index: 999;
+    max-height: 95vh;
     /* Garantir que o modal fique acima do overlay */
 }
 
@@ -184,6 +185,7 @@ body.modal-open .modal-overlay {
 select,
 option {
     font-size: clamp(0.6rem, var(--tamanho-texto-pequeno), 20px);
+    padding: 8px;
 }
 
 .contact-container .contact #budget-container.hidden {
