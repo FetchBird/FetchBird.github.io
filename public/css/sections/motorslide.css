@@ -43,20 +43,10 @@
     justify-content: center;
     overflow: hidden;
   }
-  .slide {
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-  
+
   .slider {
     width: 100vw;
     height: 100%;
-    overflow: hidden;
   }
   
   .listSlides {

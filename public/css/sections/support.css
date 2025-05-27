@@ -88,7 +88,7 @@
 
 .services h1 {
     font-family: var(--titulo);
-    font-size: clamp(1.7rem, var(--tamanho-titulo-grande), 90px);
+    font-size: clamp(1.8rem, var(--tamanho-titulo-grande), 90px);
     font-weight: var(--peso-texto);
     margin-bottom: 35px;
 }
@@ -141,7 +141,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    font-size: clamp(1.1rem, var(--tamanho-texto-pequeno), 30px)
+    font-size: clamp(1.2rem, var(--tamanho-texto-pequeno), 30px)
 }
 
 .service-second-container {
@@ -162,10 +162,309 @@
     margin-left: -15vw;
 }
 
-@media (max-width: 750px) {
+/* --------------------------------------------------------------------------------------- */
+
+/* Telas muito grandes */
+@media (min-width: 1700px) {
+    .services h1 {
+        font-size: clamp(2px, 4.5vw, 90px);
+        margin-bottom: 35px;
+    }
+
+    .services li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        font-size: clamp(2px, 2vw, 30px)
+    }
+
+
+    .services ul {
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        padding: 0;
+        margin: 0;
+    }
+
+    .services ul li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: fit-content;
+        /* importante! */
+    }
+
+    .check-icon-container {
+        width: clamp(2px, 1.9vw, 50px);
+        flex-shrink: 0;
+    }
+
+    #second-checklist {
+        height: fit-content;
+        margin-top: -4.4%;
+    }
+
+    .services button {
+        padding: 20px 25px;
+        font-size: clamp(1px, 1.5vw, 30px);
+    }
+
+    #rocket {
+        width: clamp(20%, 45vw, 870px);
+        margin-left: 0;
+    }
+    
+    #project {
+        width: clamp(20%, 50vw, 1000px) !important;
+    }
+}
+
+@media (max-width: 1699px) and (min-width: 1440px) {
+    .services h1 {
+        font-size: clamp(2px, 5vw, 90px);
+        margin-bottom: 35px;
+    }
+
+    .services li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        font-size: clamp(2px, 2vw, 35px)
+    }
+
+
+    .services ul {
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        padding: 0;
+        margin: 0;
+    }
+
+    .services ul li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: fit-content;
+        /* importante! */
+    }
+
+    .check-icon-container {
+        width: clamp(2px, 2vw, 50px);
+        flex-shrink: 0;
+    }
+
+    #second-checklist {
+        height: fit-content;
+        margin-top: -4.4%;
+    }
+
+    .services button {
+        padding: 20px 25px;
+        font-size: clamp(1px, 1.5vw, 30px);
+    }
+
+    #rocket {
+        width: clamp(20%, 45vw, 870px);
+        margin-left: 0;
+    }
+
+    #project {
+        width: clamp(20%, 50vw, 1000px) !important;
+    }
+}
+
+/* Intermediárias (laptops/tablets grandes) */
+@media (max-width: 1200px) and (min-width: 899px) and (max-height: 1100px) and (min-height: 296px) {
+    .services h1 {
+        font-size: clamp(2px, 5vw, 90px);
+        margin-bottom: 35px;
+    }
+
+    .services li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+        font-size: clamp(2px, 2vw, 30px)
+    }
+
+
+    .services ul {
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        padding: 0;
+        margin: 0;
+    }
+
+    .services ul li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: fit-content;
+        /* importante! */
+    }
+
+    .check-icon-container {
+        width: clamp(2px, 2vw, 50px);
+        flex-shrink: 0;
+    }
+
+    #second-checklist {
+        height: fit-content;
+        margin-top: -4.4%;
+    }
+
+    .services button {
+        padding: 15px 20px;
+        font-size: clamp(1px, 1.5vw, 30px);
+    }
+
+    #rocket {
+        width: clamp(20%, 45vw, 870px);
+        margin-left: 0;
+    }
+
+    #project {
+        width: clamp(20%, 50vw, 1000px) !important;
+    }
+}
+
+/* Tablets e celulares em pé */
+@media (max-width: 898px) and (max-height: 1100px) and (min-height: 296px) {
+    .service-first-container {
+        flex-direction: column;
+        justify-content: start;
+    }
+
+    .service-second-container {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: start;
+    }
+
+    #project {
+        width: clamp(20%, 55vw, 1000px) !important;
+    }
+
+    .services h1 {
+        font-size: clamp(2px, 5vw, 90px);
+        margin-bottom: 35px;
+    }
+
+    .services li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+        font-size: clamp(2px, 3vw, 30px)
+    }
+
+    .services ul {
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        padding: 0;
+        margin: 0;
+    }
+
+    .services ul li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: fit-content;
+        /* importante! */
+    }
+
+    .check-icon-container {
+        width: clamp(2px, 2.5vw, 50px);
+        flex-shrink: 0;
+    }
+
+    #second-checklist {
+        height: fit-content;
+        margin-top: -0.4%;
+    }
+
+    .services button {
+        padding: 15px 20px;
+        font-size: clamp(1px, 2vw, 30px);
+    }
+
+    #rocket {
+        width: clamp(20%, 55vw, 870px);
+        margin-left: 0;
+    }
+}
+
+
+
+/* Celulares específicos */
+@media (max-width: 850px) and (max-height: 315px) {
+    .services h1 {
+        font-size: clamp(2px, 3vw, 90px);
+        margin-bottom: 35px;
+    }
+
+    .services li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+        font-size: clamp(2px, 1.5vw, 30px)
+    }
+
+
+    .services ul {
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        padding: 0;
+        margin: 0;
+    }
+
+    .services ul li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: fit-content;
+        /* importante! */
+    }
+
+    .check-icon-container {
+        width: clamp(2px, 2vw, 50px);
+        flex-shrink: 0;
+    }
+
+    #second-checklist {
+        height: fit-content;
+        margin-top: -6.4%;
+    }
+
+    .services button {
+        padding: 10px 15px;
+        font-size: clamp(1px, 1.3vw, 30px);
+    }
+
+    #rocket {
+        width: clamp(20%, 31vw, 870px);
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 750px) and (max-height: 849px) and (min-height: 696px) {
+    #project {
+        width: clamp(20%, 45vw, 1000px);
+    }
+
+    #rocket {
+        width: clamp(20%, 38vw, 870px);
+        margin-left: 0;
+    }
+
     .service-first-container {
         display: flex;
         flex-direction: column;
+        justify-content: space-evenly;
     }
 
     .service-second-container {
@@ -185,38 +484,56 @@
     .services ul {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        width: fit-content;
+        padding: 0;
+        margin: 0;
     }
 
-    .services li {
-        justify-content: center;
+    .services ul li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: fit-content;
+        /* importante! */
     }
 
     .check-icon-container {
-        width: 20px;
+        width: clamp(20px, 4vw, 100px);
+        flex-shrink: 0;
+    }
+
+    #second-checklist {
+        height: fit-content;
+        margin-top: -19.4%;
     }
 }
 
-
-/* --------------------------------------------------------------------------------------- */
-
-/* Telas muito grandes */
-@media (min-width: 1700px) {}
-
-@media (max-width: 1699px) and (min-width: 1440px) {}
-
-/* Intermediárias (laptops/tablets grandes) */
-@media (max-width: 1200px) and (min-width: 899px) and (max-height: 1100px) and (min-height: 296px) {}
-
-/* Tablets e celulares em pé */
-@media (max-width: 898px) and (max-height: 1100px) and (min-height: 296px) {}
-
-@media (max-width: 898px) {}
-
-/* Celulares específicos */
-@media (max-width: 850px) and (max-height: 315px) {}
-
-@media (max-width: 750px) and (max-height: 849px) and (min-height: 696px) {}
-
 /* Celular em paisagem (landscape) */
-@media (orientation: landscape) and (max-width: 932px) and (min-width: 820px) and (max-height: 430px) and (min-height: 375px) {}
+@media (orientation: landscape) and (max-width: 932px) and (min-width: 820px) and (max-height: 430px) and (min-height: 375px) {
+    .services ul {
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        padding: 0;
+        margin: 0;
+    }
+
+    .services ul li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: fit-content;
+        /* importante! */
+    }
+
+    .check-icon-container {
+        width: clamp(20px, 3vw, 100px);
+        flex-shrink: 0;
+    }
+
+    #second-checklist {
+        height: fit-content;
+        margin-top: -6.4%;
+    }
+
+}
