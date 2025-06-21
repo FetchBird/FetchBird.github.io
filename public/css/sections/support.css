@@ -286,7 +286,7 @@
     .service-second-container {
         display: flex;
         flex-direction: column-reverse;
-        justify-content: start;
+        /* justify-content: start; */
     }
 
     #project {
@@ -449,7 +449,7 @@
 
     #second-checklist {
         height: fit-content;
-        margin-top: -19.4%;
+        margin-top: -57.4%;
     }
 }
 

@@ -1,4 +1,5 @@
 function moveSlider(radio, slider) {
+    console.log('moveSlider', slider);
     const whatsappIcon = document.querySelector('.whatsapp-icon-container');
     const emailIcon = document.querySelector('.email-icon-container');
 
@@ -24,7 +25,7 @@ function initContactMethod(radios = [], slider) {
 
 function toggleContactMethod() {
     const radios = document.querySelectorAll('input[name="contact"]');
-    const slider = document.querySelector('.slider');
+    const slider = document.querySelector('#radio-container .slider');
     initContactMethod(radios, slider);
     radios.forEach(radio => {
         radio.addEventListener('change', () => moveSlider(radio, slider));
