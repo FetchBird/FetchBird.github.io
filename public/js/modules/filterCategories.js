@@ -65,7 +65,7 @@ export class FilterCategories {
           swiperClass: selector.includes('II') ? '.swiperII' : '.swiper',
           hoverClass: '.hover',
           direcao: direction,
-          velocidade: 50,
+          velocidade: 40,
         });
 
         instance.refreshSlides();
