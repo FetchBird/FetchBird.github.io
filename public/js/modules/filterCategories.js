@@ -40,6 +40,15 @@ export class FilterCategories {
       slidesContainer.style.opacity = '0';
     }
 
+    // Destroi Swipers antes de mexer no DOM
+    this.swiperInstance1?.destroy(true, true);
+    this.swiperInstance2?.destroy(true, true);
+    this.swiperInstance1 = null;
+    this.swiperInstance2 = null;
+
+    // Aguarda um pequeno delay para o DOM respirar
+    await new Promise(resolve => setTimeout(resolve, 100));
+
     // Preenche HTML dos dois lados
     wrapper1.innerHTML = primeira.map(item => `
       <div class="swiper-slide">
@@ -59,18 +68,17 @@ export class FilterCategories {
       </div>
     `).join('');
 
-    // Aguarda DOM e imagens dos dois lados
+    // Aguarda imagens
     await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
     await Promise.all([
       this.preloadImages(wrapper1),
       this.preloadImages(wrapper2)
     ]);
 
-    // Destroi os antigos
-    this.swiperInstance1?.destroy();
-    this.swiperInstance2?.destroy();
+    // Pequeno delay para prevenir travadas na reexecução do Swiper
+    await new Promise(resolve => setTimeout(resolve, 100));
 
-    // Cria novos Swipers
+    // Cria os Swipers com autoplay já ativo
     this.swiperInstance1 = InitSwiper({
       swiperClass: '.swiper',
       hoverClass: '.hover',
@@ -85,10 +93,7 @@ export class FilterCategories {
       velocidade: 50
     });
 
-    this.swiperInstance1.refreshSlides();
-    this.swiperInstance2.refreshSlides();
-
-    // Aplica CSS personalizado se necessário
+    // Aplica largura personalizada
     if (this.filtroAplicado) {
       const slides1 = wrapper1.querySelectorAll('.swiper-slide');
       const slides2 = wrapper2.querySelectorAll('.swiper-slide');
@@ -96,22 +101,17 @@ export class FilterCategories {
       const largura1 = slides1.length === 2 ? '50%' : '30%';
       const largura2 = slides2.length === 2 ? '50%' : '30%';
 
-      slides1.forEach(slide => {
-        slide.style.width = largura1;
-      });
-
-      slides2.forEach(slide => {
-        slide.style.width = largura2;
-      });
+      slides1.forEach(slide => (slide.style.width = largura1));
+      slides2.forEach(slide => (slide.style.width = largura2));
     }
-    
 
-    // Finaliza: mostra os slides
+    // Finaliza visual
     if (loading && slidesContainer) {
       loading.style.display = 'none';
       slidesContainer.style.opacity = '1';
     }
   }
+  
 
   async initSwipers() {
     const data = await this.loadData();
