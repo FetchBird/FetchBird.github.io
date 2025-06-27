@@ -4,6 +4,14 @@
   height: 100%;
   gap: 5px;
 }
+.portfolios{
+  position: relative;
+}
+.loading{
+  display: none;
+  position: absolute;
+  top: 0px;
+}
 
 .swiper,.swiperII{
   width: 100%;
@@ -25,10 +33,11 @@
 .swiper-slide img{
    height: 100%;
    width: 100%;
-   border: 2px solid var(--laranja);
    border-radius: 5px;
 }
+
 .swiper-slide {
+  transition: .1s;
   cursor:pointer;
   border-radius: 5px;
   position: relative;
@@ -36,10 +45,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 245px;
-  width: 25%;
-margin: 0 25px;
-overflow: hidden;
+  height: 325px;
+  width: 525px !important;
+  margin: 0 25px;
+  overflow: hidden;
 }
 
 .hover,.cardHover{
@@ -108,7 +117,7 @@ overflow: hidden;
 
   .swiper-slide{
     margin: 5px;
-    width: 20%;
+    width: 200px !important;
     height: 150px;
   
   }

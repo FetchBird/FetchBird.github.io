@@ -3,6 +3,7 @@ import { setupSupport } from "./modules/support.js";
 import { ativarFiltro } from "./modules/filter.js";
 import { setupSlideTrigger } from "./modules/trigger.js";
 import { ScrollButtonHandler } from "./modules/header.js";
+import { FilterCategories } from "./modules/filterCategories.js";
 import { InitSwiper } from "./modules/swiper.js";
 
 window.onload = () => {
@@ -10,6 +11,9 @@ window.onload = () => {
     const nav = document.querySelector('nav[aria-label="nav_principal"]');
     const scrollHandler = new ScrollButtonHandler('.btn-mobile', 0.4);
     scrollHandler.init();
+
+    const filterCategories = new FilterCategories('.choose');
+    filterCategories.init();
   
     
     document.addEventListener('click', function (e) {
@@ -29,40 +33,18 @@ window.onload = () => {
     setupSupport();
     ativarFiltro();
     setupSlideTrigger(); 
-    const speedMobile = 50
-    const speedDesktop = 40
+   
 
-    function getSpeed() {
-        return window.innerWidth <= 890 ? speedMobile : speedDesktop;
-    }
-
-    const swiper1 = InitSwiper({
-        swiperClass: '.swiper',
-        hoverClass: '.hover',
-        direcao: 'left',
-        velocidade: getSpeed(),
-    });
-
-    const swiper2 = InitSwiper({
-        swiperClass: '.swiperII',
-        hoverClass: '.cardHover',
-        direcao: 'right',
-        velocidade: getSpeed(),
-    });
 
     // Função de redirecionamento
 function redirectToGoogleOnClick(buttonSelector) {
-    console.log('====================================');
-    console.log('ok');
-    console.log('====================================');
+
     const buttons = document.querySelectorAll(buttonSelector);
   
     buttons.forEach(button => {
       button.addEventListener('click', () => {
         window.location.href = 'https://www.google.com';
-        console.log('====================================');
-        console.log('clicou');
-        console.log('====================================');
+       
       });
     });
   }
