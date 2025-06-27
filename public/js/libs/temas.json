@@ -5,7 +5,7 @@
   },
   {
     "url": "./public/assets/images/support/boy.jpg",
-    "categorias": ["Portfólios", "Negócios"]
+    "categorias": ["Portfólios", "Negócios","Revista"]
   },
   {
     "url": "./public/assets/images/support/homemaranha.jpg",
@@ -28,6 +28,7 @@
     "categorias": [
       "Portfólios",
       "Loja",
+      "Revista",
       "Negócios"
     ]
   },

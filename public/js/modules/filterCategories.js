@@ -90,11 +90,21 @@ export class FilterCategories {
 
     // Aplica CSS personalizado se necessário
     if (this.filtroAplicado) {
-      [...wrapper1.querySelectorAll('.swiper-slide'), ...wrapper2.querySelectorAll('.swiper-slide')]
-        .forEach(slide => {
-          slide.style.width = '30%';
-        });
+      const slides1 = wrapper1.querySelectorAll('.swiper-slide');
+      const slides2 = wrapper2.querySelectorAll('.swiper-slide');
+
+      const largura1 = slides1.length === 2 ? '50%' : '30%';
+      const largura2 = slides2.length === 2 ? '50%' : '30%';
+
+      slides1.forEach(slide => {
+        slide.style.width = largura1;
+      });
+
+      slides2.forEach(slide => {
+        slide.style.width = largura2;
+      });
     }
+    
 
     // Finaliza: mostra os slides
     if (loading && slidesContainer) {
@@ -105,6 +115,18 @@ export class FilterCategories {
 
   async initSwipers() {
     const data = await this.loadData();
+
+    // Garante mínimo de 6 slides
+    while (data.length < 6) {
+      const index = data.length % Math.max(data.length, 1);
+      const item = data[index];
+      if (item?.url) {
+        data.push({ ...item });
+      } else {
+        break;
+      }
+    }
+
     const metade = Math.floor(data.length / 2);
     const primeira = data.slice(0, metade);
     const segunda = data.slice(metade).reverse();
@@ -119,13 +141,20 @@ export class FilterCategories {
     const filtrado = mostrarTodos
       ? data
       : data.filter(item =>
-        item.categorias.some(cat =>
+        item.categorias?.some(cat =>
           filtrar.includes(cat)
         )
       );
 
-    if (filtrado.length % 2 !== 0 && filtrado.length > 0) {
-      filtrado.push({ ...filtrado[0] });
+    // Garante pelo menos 6 slides
+    while (filtrado.length < 6) {
+      const index = filtrado.length % Math.max(filtrado.length, 1);
+      const item = filtrado[index];
+      if (item?.url) {
+        filtrado.push({ ...item });
+      } else {
+        break;
+      }
     }
 
     const metade = Math.floor(filtrado.length / 2);
