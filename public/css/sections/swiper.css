@@ -45,8 +45,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 325px;
-  width: 525px !important;
+  height: 265px;
+  width: 435px !important;
   margin: 0 25px;
   overflow: hidden;
 }
@@ -117,7 +117,7 @@
 
   .swiper-slide{
     margin: 5px;
-    width: 230px !important;
+    width: 175px !important;
     height: 150px;
   
   }

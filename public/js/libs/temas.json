@@ -19,6 +19,7 @@
     "url": "./public/assets/images/support/i12.jpg",
     "categorias": [
       "Blogs",
+      "Loja",
       "Educação"
     ]
   },
@@ -26,19 +27,22 @@
     "url": "./public/assets/images/support/i1.jpg",
     "categorias": [
       "Portfólios",
+      "Loja",
       "Negócios"
     ]
   },
   {
     "url": "./public/assets/images/support/i2.jpg",
     "categorias": [
-      "Loja"
+      "Loja",
+      "Blogs"
     ]
   },
   {
     "url": "./public/assets/images/support/i3.jpg",
     "categorias": [
-      "Imobiliario"
+      "Imobiliario",
+      "Loja"
     ]
   },
   {
@@ -52,7 +56,8 @@
     "url": "./public/assets/images/support/i5.jpg",
     "categorias": [
       "Portfólios",
-      "Negócios"
+      "Negócios",
+      "Blogs"
     ]
   },
   {
@@ -64,7 +69,120 @@
   {
     "url": "./public/assets/images/support/i7.jpg",
     "categorias": [
+      "Imobiliario",
+      "Blogs",
+      "Loja"
+    ]
+  },
+  {
+    "url": "./public/assets/images/support/i8.jpg",
+    "categorias": [
+      "Blogs",
+      "Educação"
+    ]
+  },
+  {
+    "url": "./public/assets/images/support/i9.jpg",
+    "categorias": [
+      "Portfólios",
+      "Negócios"
+    ]
+  },
+  {
+    "url": "./public/assets/images/support/i10.jpg",
+    "categorias": [
+      "Loja"
+    ]
+  },
+  {
+    "url": "./public/assets/images/support/i11.jpg",
+    "categorias": [
       "Imobiliario"
+    ]
+  },
+  {
+    "url": "./public/assets/images/support/blog.jpg",
+    "categorias": [
+      "Blogs",
+      "Educação"
+    ]
+  },
+  {
+    "url": "./public/assets/images/support/boy.jpg",
+    "categorias": [
+      "Portfólios",
+      "Negócios"
+    ]
+  },
+  {
+    "url": "./public/assets/images/support/homemaranha.jpg",
+    "categorias": [
+      "Loja"
+    ]
+  },
+  {
+    "url": "./public/assets/images/support/futebol.jpg",
+    "categorias": [
+      "Imobiliario"
+    ]
+  },
+  {
+    "url": "./public/assets/images/support/i12.jpg",
+    "categorias": [
+      "Blogs",
+      "Loja",
+      "Educação"
+    ]
+  },
+  {
+    "url": "./public/assets/images/support/i1.jpg",
+    "categorias": [
+      "Portfólios",
+      "Loja",
+      "Negócios"
+    ]
+  },
+  {
+    "url": "./public/assets/images/support/i2.jpg",
+    "categorias": [
+      "Loja",
+      "Blogs"
+    ]
+  },
+  {
+    "url": "./public/assets/images/support/i3.jpg",
+    "categorias": [
+      "Imobiliario",
+      "Loja"
+    ]
+  },
+  {
+    "url": "./public/assets/images/support/i4.jpg",
+    "categorias": [
+      "Blogs",
+      "Educação"
+    ]
+  },
+  {
+    "url": "./public/assets/images/support/i5.jpg",
+    "categorias": [
+      "Portfólios",
+      "Negócios",
+      "Blogs"
+    ]
+  },
+  {
+    "url": "./public/assets/images/support/i6.jpg",
+    "categorias": [
+      "Loja"
+    ]
+  },
+  {
+    "url": "./public/assets/images/support/i7.jpg",
+    "categorias": [
+      "Imobiliario",
+      "Blogs",
+      "Loja"
     ]
   },
   {

@@ -15,31 +15,33 @@ export class FilterCategories {
     return res.json();
   }
 
-  ajustarCSS() {
-    const slides = document.querySelectorAll('.swiper-slide');
-    const slidesContainer = document.querySelector('.porfolio_slides');
-    const loading = document.querySelector('.loading');
-    if (!slidesContainer || !loading) return;
-
-    slidesContainer.style.opacity = '0';
-    loading.style.display = 'flex';
-
-    slides.forEach(slide => {
-     
-      slide.style.width = '30%';
+  preloadImages(wrapper) {
+    const imgs = wrapper.querySelectorAll('img');
+    const promises = Array.from(imgs).map(img => {
+      return new Promise(resolve => {
+        if (img.complete) return resolve();
+        img.onload = img.onerror = () => resolve();
+      });
     });
-
-    setTimeout(() => {
-      loading.style.display = 'none';
-      slidesContainer.style.opacity = '1';
-    }, 2000);
+    return Promise.all(promises);
   }
 
-  renderSlides(selector, dados, direction = 'left') {
-    const wrapper = document.querySelector(selector);
-    if (!wrapper) return;
+  async renderBothSlides(primeira, segunda) {
+    const wrapper1 = document.querySelector('.swiper-wrapper');
+    const wrapper2 = document.querySelector('.swiperII .swiper-wrapper');
+    const loading = document.querySelector('.loading');
+    const slidesContainer = document.querySelector('.porfolio_slides');
 
-    const htmlSlides = dados.map(item => `
+    if (!wrapper1 || !wrapper2) return;
+
+    // Mostra loading
+    if (loading && slidesContainer) {
+      loading.style.display = 'flex';
+      slidesContainer.style.opacity = '0';
+    }
+
+    // Preenche HTML dos dois lados
+    wrapper1.innerHTML = primeira.map(item => `
       <div class="swiper-slide">
         <img src="${item.url}" alt="">
         <div class="cardHover hover">
@@ -48,45 +50,65 @@ export class FilterCategories {
       </div>
     `).join('');
 
-    wrapper.innerHTML = htmlSlides;
+    wrapper2.innerHTML = segunda.map(item => `
+      <div class="swiper-slide">
+        <img src="${item.url}" alt="">
+        <div class="cardHover hover">
+          <button>Começar com este Tema</button>
+        </div>
+      </div>
+    `).join('');
 
-    // Remove instância antiga primeiro
-    if (selector.includes('II')) {
-      this.swiperInstance2?.destroy();
-      this.swiperInstance2 = null;
-    } else {
-      this.swiperInstance1?.destroy();
-      this.swiperInstance1 = null;
+    // Aguarda DOM e imagens dos dois lados
+    await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    await Promise.all([
+      this.preloadImages(wrapper1),
+      this.preloadImages(wrapper2)
+    ]);
+
+    // Destroi os antigos
+    this.swiperInstance1?.destroy();
+    this.swiperInstance2?.destroy();
+
+    // Cria novos Swipers
+    this.swiperInstance1 = InitSwiper({
+      swiperClass: '.swiper',
+      hoverClass: '.hover',
+      direcao: 'left',
+      velocidade: 50
+    });
+
+    this.swiperInstance2 = InitSwiper({
+      swiperClass: '.swiperII',
+      hoverClass: '.hover',
+      direcao: 'right',
+      velocidade: 50
+    });
+
+    this.swiperInstance1.refreshSlides();
+    this.swiperInstance2.refreshSlides();
+
+    // Aplica CSS personalizado se necessário
+    if (this.filtroAplicado) {
+      [...wrapper1.querySelectorAll('.swiper-slide'), ...wrapper2.querySelectorAll('.swiper-slide')]
+        .forEach(slide => {
+          slide.style.width = '30%';
+        });
     }
 
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        const instance = InitSwiper({
-          swiperClass: selector.includes('II') ? '.swiperII' : '.swiper',
-          hoverClass: '.hover',
-          direcao: direction,
-          velocidade: 40,
-        });
-
-        instance.refreshSlides();
-
-        if (selector.includes('II')) {
-          this.swiperInstance2 = instance;
-        } else {
-          this.swiperInstance1 = instance;
-        }
-
-        if (this.filtroAplicado) {
-          this.ajustarCSS();
-        }
-      });
-    });
+    // Finaliza: mostra os slides
+    if (loading && slidesContainer) {
+      loading.style.display = 'none';
+      slidesContainer.style.opacity = '1';
+    }
   }
 
   async initSwipers() {
     const data = await this.loadData();
-    this.renderSlides('.swiper-wrapper', data, 'left');
-    this.renderSlides('.swiperII .swiper-wrapper', [...data].reverse(), 'right');
+    const metade = Math.floor(data.length / 2);
+    const primeira = data.slice(0, metade);
+    const segunda = data.slice(metade).reverse();
+    await this.renderBothSlides(primeira, segunda);
   }
 
   async applyFilter() {
@@ -97,10 +119,10 @@ export class FilterCategories {
     const filtrado = mostrarTodos
       ? data
       : data.filter(item =>
-          item.categorias.some(cat =>
-            filtrar.includes(cat)
-          )
-        );
+        item.categorias.some(cat =>
+          filtrar.includes(cat)
+        )
+      );
 
     if (filtrado.length % 2 !== 0 && filtrado.length > 0) {
       filtrado.push({ ...filtrado[0] });
@@ -112,8 +134,7 @@ export class FilterCategories {
 
     this.filtroAplicado = true;
 
-    this.renderSlides('.swiper-wrapper', primeira, 'left');
-    this.renderSlides('.swiperII .swiper-wrapper', segunda, 'right');
+    await this.renderBothSlides(primeira, segunda);
 
     const filterOptionals = document.querySelector(".filterOptionals");
     filterOptionals?.classList.toggle('ativo');
@@ -123,24 +144,16 @@ export class FilterCategories {
     const clearButton = document.querySelector('.clean');
     if (clearButton) {
       clearButton.addEventListener('click', () => {
-        // Remove .filterAdd e .ativo de todos os <li> dentro de .filter
         const itens = document.querySelectorAll('.filter li');
         itens.forEach(el => {
-          el.classList.remove('filterAdd');
-          el.classList.remove('ativo');
+          el.classList.remove('filterAdd', 'ativo');
         });
 
-        // Limpa o array de categorias escolhidas
         this.categoriasEscolhidas = [];
-
-        console.log("Filtros limpos");
-
-        // Reaplica o filtro com a lista vazia
         this.applyFilter();
       });
     }
   }
-  
 
   catchCategories() {
     const itens = document.querySelectorAll('.filter li');
@@ -148,9 +161,7 @@ export class FilterCategories {
       li.addEventListener('click', () => {
         li.classList.toggle('filterAdd');
         const ativos = document.querySelectorAll('.filter li.filterAdd');
-        const textos = Array.from(ativos).map(el => el.textContent.trim());
-        this.categoriasEscolhidas = textos;
-        console.log("Categorias escolhidas:", this.categoriasEscolhidas);
+        this.categoriasEscolhidas = Array.from(ativos).map(el => el.textContent.trim());
       });
     });
 
@@ -164,8 +175,8 @@ export class FilterCategories {
     }
   }
 
-  init() {
-    this.initSwipers();
+  async init() {
+    await this.initSwipers();
     this.catchCategories();
     this.addClearFilter();
   }
