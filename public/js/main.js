@@ -49,8 +49,10 @@ function redirectToGoogleOnClick(buttonSelector) {
     });
   }
   
-  // Ativa nos botões
-  redirectToGoogleOnClick('.hover button');
-  redirectToGoogleOnClick('.cardHover button');
+ setTimeout(()=>{
+   // Ativa nos botões
+   redirectToGoogleOnClick('.hover button');
+   redirectToGoogleOnClick('.cardHover button');
+ },3000)
 
 };
