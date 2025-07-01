@@ -26,6 +26,18 @@ export class FilterCategories {
     return Promise.all(promises);
   }
 
+  redirectToGoogleOnClick(buttonSelector) {
+
+  const buttons = document.querySelectorAll(buttonSelector);
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      window.location.href = 'https://www.google.com';
+
+    });
+  });
+}
+
   async renderBothSlides(primeira, segunda) {
     const wrapper1 = document.querySelector('.swiper-wrapper');
     const wrapper2 = document.querySelector('.swiperII .swiper-wrapper');
@@ -54,7 +66,9 @@ export class FilterCategories {
       <div class="swiper-slide">
         <img src="${item.url}" alt="">
         <div class="cardHover hover">
-          <button>Começar com este Tema</button>
+            
+            <button>Começar com este Tema</button>
+         
         </div>
       </div>
     `).join('');
@@ -167,6 +181,12 @@ export class FilterCategories {
 
     const filterOptionals = document.querySelector(".filterOptionals");
     filterOptionals?.classList.toggle('ativo');
+
+    setTimeout(() => {
+      // Ativa nos botões
+      this.redirectToGoogleOnClick('.hover button');
+      this.redirectToGoogleOnClick('.cardHover button');
+    }, 100)
   }
 
   addClearFilter() {
