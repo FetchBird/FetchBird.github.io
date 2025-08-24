@@ -39,6 +39,7 @@ body.modal-open .modal-overlay {
     position: fixed;
     z-index: 999;
     max-height: 95vh;
+    overflow-y: scroll;
     /* Garantir que o modal fique acima do overlay */
 }
 
