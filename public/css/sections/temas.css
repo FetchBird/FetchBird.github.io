@@ -1,0 +1,153 @@
+
+.temas_container{
+  display: none;
+    padding-top: 20px;
+ 
+}
+
+
+
+.temas_container.ativo{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  overflow-y: scroll;
+    background: #0f0f0f;
+  z-index: 9999;
+}
+
+.temas_container.ativo ~ section,
+.temas_container.ativo ~ header,
+.temas_container.ativo ~ footer {
+  display: none !important;
+}
+
+
+/* container do slide */
+.temas_slides_container {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 20px 60px; /* espaço lateral para os botões */
+  border-radius: 8px;
+}
+
+/* wrapper que se transforma */
+.slides-wrapper {
+  display: flex;
+  gap: 5px; /* usaremos getBoundingClientRect para calcular passo */
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: transform;
+  align-items: center;
+}
+
+/* cada card */
+.slide_site {
+  min-width: 250px;
+  height: 150px;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #2de0d6, #0aa6ff);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #071018;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.45);
+  position: relative;
+  overflow: hidden;
+}
+
+/* hover estilo "crescer orgânico" */
+.slide_site:hover {
+  transform: scale(0.99) translateY(-2px);
+  z-index: 5;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.7);
+}
+
+.slide-btn:hover{
+  opacity: 1;
+}
+
+/* botões */
+.slide-btn {
+  transition: .2s;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  background: #071018d8;
+  border: 0;
+  outline: none;
+  color: #fff;
+  font-size: 1.6rem;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease, transform 0.12s ease;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.title_tema{
+  color: #fff;
+  font-size: 35px;
+  margin-bottom: 20px;
+}
+
+.slide-btn{
+
+  top: 62%;
+  height: 152px;
+}
+
+.slide-btn.prev { left: 0px; }
+.slide-btn.next { right: 0px; }
+
+/* estado desabilitado */
+.slide-btn[disabled] {
+  opacity: 0.35;
+  pointer-events: none;
+  transform: translateY(-90%) scale(1);
+}
+
+/* ajustes responsivos */
+@media (max-width: 900px) {
+  .slide_site { min-width: 200px; height: 130px; }
+  .temas_slides_container { padding: 14px 40px; }
+}
+
+@media (max-width: 600px) {
+  .slide_site { min-width: 160px; height: 110px; }
+  .temas_slides_container { padding: 12px 20px; }
+ 
+}
+
+
+.temas_container {
+  overflow-x: auto;  /* garante scroll horizontal */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #f9af2b #111; /* Firefox */
+}
+
+.temas_container::-webkit-scrollbar {
+  height: 12px;  /* scrollbar horizontal */
+}
+
+.temas_container::-webkit-scrollbar-track {
+  background: yellow !important;  /* fundo do trilho */
+}
+
+.temas_container::-webkit-scrollbar-thumb {
+  background: rgb(21, 0, 255);   /* a barrinha */
+  border-radius: 6px;
+}
+

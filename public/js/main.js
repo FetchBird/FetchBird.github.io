@@ -1,10 +1,11 @@
 import { setupContactForm } from "./modules/contactForm.js";
 import { setupSupport } from "./modules/support.js";
 import { ativarFiltro } from "./modules/filter.js";
+import  Slide  from "./modules/Slide.js";
 import { setupSlideTrigger } from "./modules/trigger.js";
 import { ScrollButtonHandler } from "./modules/header.js";
 import { FilterCategories } from "./modules/filterCategories.js";
-import { InitSwiper } from "./modules/swiper.js";
+
 
 window.onload = () => {
     const botao = document.querySelector('.btn-mobile');
@@ -15,7 +16,23 @@ window.onload = () => {
     const filterCategories = new FilterCategories('.choose');
     filterCategories.init();
   
+
+  const slider = new Slide(".temas_slides_container", {
+    slidesToScroll: 5,   // quantos slides avançar por clique
+    duration: 400,        // velocidade da transição (ms)
     
+  });
+
+  const slider2 = new Slide(".slide2", {
+    slidesToScroll: 5,   // quantos slides avançar por clique
+    duration: 400,        // velocidade da transição (ms)
+  });
+
+  const slider3 = new Slide(".slide3", {
+    slidesToScroll: 5,   // quantos slides avançar por clique
+    duration: 400,        // velocidade da transição (ms)
+  });
+
     document.addEventListener('click', function (e) {
         if (!nav.contains(e.target) && !botao.contains(e.target)) {
             nav.classList.remove('on');
