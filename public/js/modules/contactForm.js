@@ -153,43 +153,7 @@ function initContactForm() {
     toggleContactMethod();
     toggleBudgetInput();
     toggleContactInfoLabel();
-
-    // Adiciona o submit do formulário
-    const form = document.getElementById("contact-form");
-    if (form) {
-        form.addEventListener("submit", async (e) => {
-            e.preventDefault(); // evita reload
-
-            // Pega os dados do form
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData.entries());
-
-            try {
-                const response = await fetch("https://fetchbird.com.br/send-email", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(data),
-                });
-                console.log('response', response);
-                const result = await response.json();
-
-                if (result.success) {
-                    alert("E-mail enviado com sucesso!");
-                    form.reset();
-                    closeContactForm(); // fecha o modal
-                } else {
-                    alert("Erro ao enviar e-mail: " + result.message);
-                }
-            } catch (error) {
-                console.error("Erro ao enviar e-mail:", error);
-                alert("Erro ao enviar e-mail, tente novamente mais tarde.");
-            }
-        });
-    }
 }
-
 
 export function setupContactForm(button) {
     handleOutsideClickToClose();
