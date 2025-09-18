@@ -40,6 +40,37 @@ window.onload = () => {
         }
     });
 
+    document.querySelector(".showtemas").addEventListener('click', ()=>{
+      const container = document.querySelector(".temas_container");
+      const sliders = document.querySelectorAll(".slides-wrapper");
+sliders.forEach((item) => {
+  item.style.transform = "translateX(-3825px)";
+});
+      container.classList.add("ativo");
+    })
+
+    document.querySelectorAll(".slide_site").forEach((slide) => {
+  slide.addEventListener("click", () => {
+    // pega o texto do <h3> dentro do slide clicado
+    const titulo = slide.querySelector("h3")?.innerText || "sem título";
+
+    // monta a mensagem
+    const mensagem = `Olá, eu gostei do tema ${titulo}`;
+
+    // codifica para usar na URL do WhatsApp
+    const textoCodificado = encodeURIComponent(mensagem);
+
+    // abre o WhatsApp Web / App já com a mensagem pronta
+    window.open(`https://wa.me/5511995175454?text=${textoCodificado}`, "_blank");
+  });
+});
+
+
+    document.querySelector(".out").addEventListener('click', ()=>{
+      const container = document.querySelector(".temas_container");
+      container.classList.remove("ativo");
+    })
+
     botao.addEventListener('click', () => {
         nav.classList.toggle('on');
         botao.classList.toggle('on');
